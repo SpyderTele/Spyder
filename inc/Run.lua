@@ -1,4 +1,3 @@
-
 --[[
 #    ▀█████████▄   ▄██████▄     ▄████████    ▄████████
 #      ███    ███ ███    ███   ███    ███   ███    ███
@@ -7,7 +6,7 @@
 #    ▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @TH3Spyder
 #      ███    ██▄ ███    ███          ███          ███ ¦ Dev : @OMMMM
 #      ███    ███ ███    ███    ▄█    ███    ▄█    ███
-#    ▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ Source TH3Spyder BY @TH3BS
+#    ▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ Source TH3Spyder BY @SPYDERTELE
 #---------------------------------------------------------------------
 ]] 
 Er_ssl   , https = pcall(require, "ssl.https")
@@ -27,8 +26,10 @@ end
 
 if not Er_utf8 then
 print("('\n\27[1;31m￤Pkg >> UTF_8 is Not installed.'\n\27[0m￤")
+os.execute("sudo luarocks install luautf8")
 os.exit()
 end
+
 
 
 function create_config(Token)
@@ -61,13 +62,13 @@ if not SUDO_USER:match('@[%a%d_]') then
 print('\n\27[1;31m￤ This is Not USERNAME !\n￤هہ‏‏ذآ ليس مـعرف حسـآب تلگرآم , عذرآ آدخل آلمـعرف آلصـحيح آلآن . ')
 create_config(Token)
 end 
-local DirFol = io.popen("echo $(cd $(dirname $0); pwd)"):read('*all'):gsub(' ',''):gsub("\n",'')
+local DirFol = io.popen("echo $(cd $(dirname $0); pwd)"):read('*all')
 user = {}
 user.username = SUDO_USER
 user.Source  = DirFol
-local url , res = https.request('https://api.th3Spyder.com/GetID/?Array='..JSON.encode(user))
-print(res)
+local url , res = https.request('https://api.SPYDERTELE.com/GetID/?Array='..JSON.encode(user))
 if res ~= 200 then
+print(res)
 print('\n\27[1;31m￤ Conect is Failed !\n￤ حدث خطـآ في آلآتصـآل بآلسـيرفر , يرجى مـرآسـلهہ‏‏ مـطـور آلسـورس ليتمـگن مـن حل آلمـشـگلهہ‏‏ في آسـرع وقت مـمـگن . !')
 os.exit()
 end
@@ -129,12 +130,12 @@ print('\27[0;33m>>'..[[
 
 
 ▀█████████▄   ▄██████▄     ▄████████    ▄████████
-███    ███ ███    ███   ███    ███   ███    ███
-███    ███ ███    ███   ███    █▀    ███    █▀
-▄███▄▄▄██▀  ███    ███   ███          ███
-▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @TH3BS
-███    ██▄ ███    ███          ███          ███ ¦ Dev : @OMMMM
-███    ███ ███    ███    ▄█    ███    ▄█    ███
+  ███    ███ ███    ███   ███    ███   ███    ███
+  ███    ███ ███    ███   ███    █▀    ███    █▀
+ ▄███▄▄▄██▀  ███    ███   ███          ███
+▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @SPYDERTELE
+  ███    ██▄ ███    ███          ███          ███ ¦ Dev : @OMMMM
+  ███    ███ ███    ███    ▄█    ███    ▄█    ███
 ▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ Source The3Spyder
 ---------------------------------------------------------------------
 ]]..'\027[0;32m')
@@ -150,6 +151,7 @@ ApiToken = "https://api.telegram.org/bot"..Token
 Bot_User = redis:get(Spyder..":UserNameBot:")
 SUDO_ID = tonumber(redis:get(Spyder..":SUDO_ID:"))
 if not SUDO_ID then io.popen("rm -fr ./inc/Token.txt") end
+SUDO_ID =  tonumber(redis:get(Spyder..":SUDO_ID:"))
 SUDO_USER = redis:hgetall(Spyder..'username:'..SUDO_ID).username
 version = redis:get(Spyder..":VERSION")
 DataCenter = redis:get(Spyder..":DataCenter:")
@@ -174,16 +176,16 @@ print('\27[0;33m>>'..[[
 
 
 ▀█████████▄   ▄██████▄     ▄████████    ▄████████ 
-███    ███ ███    ███   ███    ███   ███    ███ 
-███    ███ ███    ███   ███    █▀    ███    █▀  
-▄███▄▄▄██▀  ███    ███   ███          ███        
-▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @TH3BS
-███    ██▄ ███    ███          ███          ███ ¦ Dev : @OMMMM
-███    ███ ███    ███    ▄█    ███    ▄█    ███ 
+  ███    ███ ███    ███   ███    ███   ███    ███ 
+  ███    ███ ███    ███   ███    █▀    ███    █▀  
+ ▄███▄▄▄██▀  ███    ███   ███          ███        
+▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @SPYDERTELE
+  ███    ██▄ ███    ███          ███          ███ ¦ Dev : @OMMMM
+  ███    ███ ███    ███    ▄█    ███    ▄█    ███ 
 ▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ VERSION » v]]..version..[[
 
 -------------------------------------------------------------------
-
+                                                  
 ]]..'\027[0;32m'
 ..'¦ TOKEN_BOT: \27[1;34m'..Token..'\027[0;32m\n'
 ..'¦ BOT__INFO: \27[1;34m'.. Bot_User..'\27[0;36m » ('..Spyder..')\027[0;32m\n'
@@ -197,7 +199,7 @@ print('\27[0;33m>>'..[[
 local Twer = io.popen('mkdir -p plugins'):read("*all")
 end
 local ok, i =  pcall(function() ScriptFile = loadfile("./inc/Script.lua")() end)
-if not ok then  
+if not ok then 
 print('\27[31m! Error File Not "Run inc/Script.lua" !\n\27[39m')
 print(tostring(io.popen("lua inc/Script.lua"):read('*all')))
 end
@@ -239,7 +241,7 @@ return false
 end
 if msg.reply_to_message_id_ ~= 0 then msg.reply_id = msg.reply_to_message_id_ end
 msg.type = GetType(msg.chat_id_)
-if msg.type == "pv" and redis:get(Spyder..':mute_pv:'..msg.sender_user_id_) then
+if msg.type == "pv" and redis:get(Spyder..':mute_pv:'..msg.chat_id_) then
 print('\27[1;31m is_MUTE_BY_FLOOD\27[0m')
 return false 
 end
@@ -254,82 +256,39 @@ else
 msg.GroupActive = false
 end
 
-if msg.GroupActive then 
-
-if (msg.content_.ID == "MessagePhoto" 
-or msg.content_.ID == "MessageSticker" 
-or msg.content_.ID == "MessageVoice" 
-or msg.content_.ID == "MessageAudio" 
-or msg.content_.ID == "MessageVideo" 
-or msg.content_.ID == "MessageAnimation" 
-or msg.content_.ID == "MessageUnsupported") 
-and redis:get(Spyder.."lock_cleaner"..msg.chat_id_) then
-print("Clener >>> ")
-redis:sadd(Spyder..":IdsMsgsCleaner:"..msg.chat_id_,msg.id_)
-Timerr = redis:get(Spyder..':Timer_Cleaner:'..msg.chat_id_)
-if Timerr then 
-Timerr = tonumber(Timerr)
-Timerr = 60*60*Timerr
-end
-redis:setex(Spyder..":SetTimerCleaner:"..msg.chat_id_..msg.id_,Timerr or 21600,true)  
-end
-
-
-
-print(Spyder..":IdsMsgsCleaner:"..msg.chat_id_)
-local Cleaner = redis:smembers(Spyder..":IdsMsgsCleaner:"..msg.chat_id_)
-for k,v in pairs(Cleaner) do
-if not redis:get(Spyder..":SetTimerCleaner:"..msg.chat_id_..v) then
-Del_msg(msg.chat_id_,v)
-redis:srem(Spyder..":IdsMsgsCleaner:"..msg.chat_id_,v)
-print("MSG DELET CLEANER : "..v)
-else
-print("MSG List CLEANER : "..v.." : Lodding ...")
-end
-end
-
-
-
-
-end
-
 if msg.content_.ID == "MessageChatDeleteMember" then 
 if msg.GroupActive and redis:get(Spyder..'mute_tgservice'..msg.chat_id_) then
 Del_msg(msg.chat_id_,msg.id_)
 end
 return false 
-end 
+end
 
-if msg.sender_user_id_ == 819385837 or msg.sender_user_id_ == 60809019  then 
-msg.TheRankCmd = 'مطور السورس'
-msg.TheRank = 'مطور السورس'
-msg.Rank = 1
-elseif msg.sender_user_id_ == SUDO_ID then 
-msg.TheRankCmd = redis:get(Spyder..":RtbaNew1:"..msg.chat_id_) or 'المطور الاساسي' 
-msg.TheRank = redis:get(Spyder..":RtbaNew1:"..msg.chat_id_) or 'مطور اساسي 👨🏻‍✈️' 
+if msg.sender_user_id_ == SUDO_ID then 
+msg.TheRankCmd = 'المطور الاساسي' 
+msg.TheRank = 'مطور اساسي 👨🏻‍✈️' 
 msg.Rank = 1
 elseif redis:sismember(Spyder..':SUDO_BOT:',msg.sender_user_id_) then 
-msg.TheRankCmd = redis:get(Spyder..":RtbaNew2:"..msg.chat_id_) or 'المطور'
-msg.TheRank = redis:get(Spyder..":RtbaNew2:"..msg.chat_id_) or 'مطور البوت 👨🏽‍💻'
+msg.TheRankCmd = 'المطور'
+msg.TheRank = 'مطور البوت 👨🏽‍💻'
 msg.Rank = 2
 elseif msg.GroupActive and redis:sismember(Spyder..':MONSHA_Group:'..msg.chat_id_,msg.sender_user_id_) then 
-msg.TheRankCmd = redis:get(Spyder..":RtbaNew3:"..msg.chat_id_) or 'منشئ اساسي'
-msg.TheRank = redis:get(Spyder..":RtbaNew3:"..msg.chat_id_) or 'منشئ اساسي 👲🏼'
+msg.TheRankCmd = 'منشئ اساسي'
+msg.TheRank = 'منشئ اساسي 👲🏼'
 msg.Rank = 11
 elseif msg.GroupActive and redis:sismember(Spyder..':MONSHA_BOT:'..msg.chat_id_,msg.sender_user_id_) then 
-msg.TheRankCmd = redis:get(Spyder..":RtbaNew4:"..msg.chat_id_) or 'المنشىء'
-msg.TheRank = redis:get(Spyder..":RtbaNew4:"..msg.chat_id_) or 'المنشىء 👷🏽'
+msg.TheRankCmd = 'المنشىء'
+msg.TheRank = 'المنشىء 👷🏽'
 msg.Rank = 3
 elseif msg.GroupActive and redis:sismember(Spyder..'owners:'..msg.chat_id_,msg.sender_user_id_) then 
-msg.TheRankCmd = redis:get(Spyder..":RtbaNew5:"..msg.chat_id_) or 'المدير' 
-msg.TheRank = redis:get(Spyder..":RtbaNew5:"..msg.chat_id_) or 'مدير البوت 👨🏼‍⚕️' 
+msg.TheRankCmd = 'المدير' 
+msg.TheRank = 'مدير البوت 👨🏼‍⚕️' 
 msg.Rank = 4
 elseif msg.GroupActive and redis:sismember(Spyder..'admins:'..msg.chat_id_,msg.sender_user_id_) then 
-msg.TheRankCmd = redis:get(Spyder..":RtbaNew6:"..msg.chat_id_) or 'الادمن'
-msg.TheRank = redis:get(Spyder..":RtbaNew6:"..msg.chat_id_) or 'ادمن في البوت 👨🏼‍🎓'
+msg.TheRankCmd = 'الادمن'
+msg.TheRank = 'ادمن في البوت 👨🏼‍🎓'
 msg.Rank = 5
 elseif msg.GroupActive and redis:sismember(Spyder..'whitelist:'..msg.chat_id_,msg.sender_user_id_) then 
-msg.TheRank = redis:get(Spyder..":RtbaNew7:"..msg.chat_id_) or 'عضو مميز'
+msg.TheRank = 'عضو مميز'
 msg.Rank = 6
 elseif msg.sender_user_id_ == our_id then
 msg.Rank = 7
@@ -337,7 +296,7 @@ else
 msg.TheRank = 'فقط عضو 🙍🏼‍♂️'
 msg.Rank = 10 
 end
-
+ 
 if msg.Rank == 1 then
 msg.SudoBase = true
 end
@@ -416,7 +375,7 @@ if redis:get(Spyder..'mute_tgservice'..msg.chat_id_) then
 Del_msg(msg.chat_id_,msg.id_)
 return false 
 else
-if redis:get(Spyder.."lock_check"..msg.chat_id_) and not redis:get(Spyder..":TqeedUser:"..msg.chat_id_..Senderid) then
+if redis:get(Spyder.."lock_check"..msg.chat_id_) then
 local text = "⚜️┇ اهلاً بك في المجموعة\n🛠┇ للتأكد بأنك لست { ربوت }\n⚠️┇ تم تقييدك اضغط الزر بالاسفل\n💡┇ للتأكد انك { عضو حقيقي }🌻👇🏾"
 local inline = {{{text="• أضـغط ۿـنا للتـأكد أنك لست ربوت ♻️",callback_data="CheckRobotJoin:"..Senderid}}}
 Restrict(msg.chat_id_,Senderid,1)
@@ -452,29 +411,29 @@ kick_user((msg.adduser or msg.sender_user_id_), msg.chat_id_)
 return false 
 end
 
-if msg.GroupActive and not msg.Special and not msg.Admin then
+if msg.GroupActive and not msg.Special then
 if redis:get(Spyder..'mute_text'..msg.chat_id_) then --قفل الدردشه
 print("\27[1;31m Chat is Mute \27[0m")
 Del_msg(msg.chat_id_,msg.id_)
 return false 
 end
 if msg.content_.ID == "MessageText" then
-Type_id = msg.content_.text_
-elseif msg.content_.ID == 'MessagePhoto' then
-if msg.content_.photo_.sizes_[3] then Type_id = msg.content_.photo_.sizes_[3].photo_.persistent_id_ else Type_id = msg.content_.photo_.sizes_[0].photo_.persistent_id_ end
-elseif msg.content_.ID == "MessageSticker" then
-Type_id = msg.content_.sticker_.sticker_.persistent_id_
-elseif msg.content_.ID == "MessageVoice" then
-Type_id = msg.content_.voice_.voice_.persistent_id_
-elseif msg.content_.ID == "MessageAnimation" then
-Type_id = msg.content_.animation_.animation_.persistent_id_
-elseif msg.content_.ID == "MessageVideo" then
-Type_id = msg.content_.video_.video_.persistent_id_
-elseif msg.content_.ID == "MessageAudio" then
-Type_id = msg.content_.audio_.audio_.persistent_id_
-else
-Type_id = 0
-end
+	Type_id = msg.content_.text_
+  elseif msg.content_.ID == 'MessagePhoto' then
+  if msg.content_.photo_.sizes_[3] then Type_id = msg.content_.photo_.sizes_[3].photo_.persistent_id_ else Type_id = msg.content_.photo_.sizes_[0].photo_.persistent_id_ end
+  elseif msg.content_.ID == "MessageSticker" then
+	Type_id = msg.content_.sticker_.sticker_.persistent_id_
+  elseif msg.content_.ID == "MessageVoice" then
+	Type_id = msg.content_.voice_.voice_.persistent_id_
+  elseif msg.content_.ID == "MessageAnimation" then
+	Type_id = msg.content_.animation_.animation_.persistent_id_
+  elseif msg.content_.ID == "MessageVideo" then
+	Type_id = msg.content_.video_.video_.persistent_id_
+  elseif msg.content_.ID == "MessageAudio" then
+	Type_id = msg.content_.audio_.audio_.persistent_id_
+  else
+	Type_id = 0
+  end
 
 if FilterX(msg,Type_id) then --[[ الكلمات الممنوعه ]]
 return false
@@ -483,30 +442,28 @@ end
 
 if ScriptFile and ScriptFile.Spyder then 
 if msg.text and ScriptFile.iSpyder then
-XSpyder = ScriptFile.Spyder
-local list = redis:hgetall(Spyder..":AwamerBotArray:"..msg.chat_id_)
-for Spyder2,k in pairs(list) do
-Text = msg.text
-Text2 = k
-if Text:match(Spyder2) then 
-local amrr = {Text:match(Spyder2)}
-local AmrOld = redis:hgetall(Spyder..":AwamerBotArray2:"..msg.chat_id_)
-amrnew = "" amrold = ""
-for Amor,ik in pairs(AmrOld) do
-if Text2:match(ik) then	
-if amrr[1] == Amor then
-amrnew = Amor ; amrold = ik   
-end end end
-Text = Text:gsub(amrnew,amrold)
-AF = CheckBotA(msg) if AF then return sendMsg(msg.chat_id_,msg.id_,AF) end 
-GetMsg = ScriptFile.iSpyder(msg,{Text:match(Text2)})
-if GetMsg then
-print("\27[1;35m¦This_Msg : "..Text2.."  | Plugin is: \27[1;32mScript.lua\27[0m")
-sendMsg(msg.chat_id_,msg.id_,GetMsg)
-return false
-end 
-end
-end
+	XSpyder = ScriptFile.Spyder
+	local list = redis:hgetall(Spyder..":AwamerBotArray:"..msg.chat_id_)
+	for Spyder2,k in pairs(list) do
+		Text = msg.text
+		Text2 = k
+		if Text:match(Spyder2) then 
+		local AmrOld = redis:hgetall(Spyder..":AwamerBotArray2:"..msg.chat_id_)
+		amrnew = "" amrold = ""
+		for Amor,ik in pairs(AmrOld) do
+		if Text2:match(ik) then			
+		amrnew = Amor ; amrold = ik  end
+		end
+		Text = Text:gsub(amrnew,amrold)
+		AF = CheckBotA(msg) if AF then return sendMsg(msg.chat_id_,msg.id_,AF) end 
+		GetMsg = ScriptFile.iSpyder(msg,{Text:match(Text2)})
+		if GetMsg then
+		print("\27[1;35m¦This_Msg : "..Text2.."  | Plugin is: \27[1;32mScript.lua\27[0m")
+		sendMsg(msg.chat_id_,msg.id_,GetMsg)
+		return false
+		end 
+		end
+	end
 
 for k, Spyder in pairs(XSpyder) do
 Text = msg.text
@@ -560,11 +517,11 @@ end
 end
 
 function tdcli_update_callback(data)
-local msg = data.message_
-if data.ID == "UpdateMessageSendFailed" then 
-if msg and msg.sender_user_id_ then
-redis:srem(Spyder..'users',msg.sender_user_id_)
-end
+	local msg = data.message_
+	if data.ID == "UpdateMessageSendFailed" then 
+	if msg and msg.sender_user_id_ then
+	redis:srem(Spyder..'users',msg.sender_user_id_)
+	end
 elseif data.ID == "UpdateNewCallbackQuery" then
 local datab = data.payload_.data_ 
 local UserID = data.sender_user_id_
@@ -576,19 +533,19 @@ local UserJoin = tonumber(UserJoin)
 if Text == "CheckRobotJoin:" then
 local Adminn = false
 if UserID == SUDO_ID then 
-Adminn = true
+	Adminn = true
 elseif redis:sismember(Spyder..':SUDO_BOT:',UserID) then 
-Adminn = true
+	Adminn = true
 elseif redis:sismember(Spyder..':MONSHA_BOT:'..ChatID,UserID) then 
-Adminn = true
+	Adminn = true
 elseif redis:sismember(Spyder..':MONSHA_Group:'..ChatID,UserID) then 
-Adminn = true
+	Adminn = true
 elseif redis:sismember(Spyder..'owners:'..ChatID,UserID) then 
-Adminn = true
+	Adminn = true
 elseif redis:sismember(Spyder..'admins:'..ChatID,UserID) then 
-Adminn = true
+	Adminn = true
 elseif UserID == UserJoin then 
-Adminn = true
+	Adminn = true
 end	
 if Adminn then
 Restrict(ChatID,UserJoin,2)
@@ -608,145 +565,145 @@ local msg = data.message_
 if msg.content_.text_ then
 if redis:get(Spyder..":propin"..msg.chat_id_) == msg.content_.text_ then
 redis:del(Spyder..":propin"..msg.chat_id_)
-tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) end,nil)   
+tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) vardump(d)end,nil)   
 end
 
 end
-if Refresh_Start then
-Refresh_Start = false
-Start_Bot()
-return false
-end 
-if UpdateSourceStart then
-UpdateSourceStart = false
-UpdateSource(msg,true)
-end
-elseif data.ID == "UpdateNewMessage" then
-if msg.content_.ID == "MessageText" then
-if msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID then
-if msg.content_.entities_[0].ID == "MessageEntityTextUrl" then
-msg.textEntityTypeTextUrl = true
-print("MessageEntityTextUrl")
-elseif msg.content_.entities_[0].ID == "MessageEntityBold" then 
-msg.textEntityTypeBold = true
-elseif msg.content_.entities_[0].ID == "MessageEntityItalic" then
-msg.textEntityTypeItalic = true
-print("MessageEntityItalic")
-elseif msg.content_.entities_[0].ID == "MessageEntityCode" then
-msg.textEntityTypeCode = true
-print("MessageEntityCode")
-end
-end
-msg.text = msg.content_.text_
-if (msg.text=="تحديث" or msg.text=="we" or msg.text=="تحديث ♻️") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 819385837 or msg.sender_user_id_ == 60809019) then
-return sendMsg(msg.chat_id_,msg.id_,"🗂¦ تم تحديث الملفات",function(arg,data)
-Refresh_Start = true
-end)
-end 
-if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 819385837 or msg.sender_user_id_ == 60809019) then
-UpdateSource(msg)
-sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم تحديث وتثبيت السورس  *} 📡.\n\n👨🏼‍💼| { Bot is Update » }👍🏿',function(arg,data)
-dofile("./inc/Run.lua")
-print("Reload ~ ./inc/Run.lua")
-end) 
-end
-if (msg.text == 'reload' or msg.text == "أعادة التشغيل 🔌") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 819385837 or msg.sender_user_id_ == 60809019) then
-sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم أعـاده تشغيل البوت  *} 📡.\n\n👨🏼‍💼| { Bot is Reloaded » }👍🏿',function(arg,data)
-dofile("./inc/Run.lua")
-print("Reload ~ ./inc/Run.lua")
-end)
-return false
-end
-end 
-input_inFo(msg)
+	if Refresh_Start then
+	Refresh_Start = false
+	Start_Bot()
+	return false
+	end
+	if UpdateSourceStart then
+	UpdateSourceStart = false
+	UpdateSource(msg,true)
+	end
+	elseif data.ID == "UpdateNewMessage" then
+	if msg.content_.ID == "MessageText" then
+	if msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID then
+	if msg.content_.entities_[0].ID == "MessageEntityTextUrl" then
+	msg.textEntityTypeTextUrl = true
+	print("MessageEntityTextUrl")
+	elseif msg.content_.entities_[0].ID == "MessageEntityBold" then 
+	msg.textEntityTypeBold = true
+	elseif msg.content_.entities_[0].ID == "MessageEntityItalic" then
+	msg.textEntityTypeItalic = true
+	print("MessageEntityItalic")
+	elseif msg.content_.entities_[0].ID == "MessageEntityCode" then
+	msg.textEntityTypeCode = true
+	print("MessageEntityCode")
+	end
+	end
+	msg.text = msg.content_.text_
+	if (msg.text=="تحديث" or msg.text=="we" or msg.text=="تحديث ♻️") and msg.sender_user_id_ == SUDO_ID then
+	return sendMsg(msg.chat_id_,msg.id_," 🗂¦ تہ‏‏م تحديث آلمـلفآت \n✓",function(arg,data)
+	Refresh_Start = true
+	end)
+	end 
+	if msg.text == 'Update Source' and msg.sender_user_id_ == SUDO_ID then
+	UpdateSource(msg)
+	sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم تحديث وتثبيت السورس  *} 📡.\n\n👨🏼‍💼| { Bot is Update » }👍🏿',function(arg,data)
+	dofile("./inc/Run.lua")
+	print("Reload ~ ./inc/Run.lua")
+	end) 
+	end
+	if (msg.text == 'reload' or msg.text == "أعادة التشغيل 🔌") and msg.sender_user_id_ == SUDO_ID then
+	sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم أعـاده تشغيل البوت  *} 📡.\n\n👨🏼‍💼| { Bot is Reloaded » }👍🏿',function(arg,data)
+	dofile("./inc/Run.lua")
+	print("Reload ~ ./inc/Run.lua")
+	end)
+	return false
+	end
+	end 
+	input_inFo(msg)
+	
+	elseif data.ID == "UpdateNewChat" then  
+	if redis:get(Spyder..'group:add'..data.chat_.id_) then
+	redis:set(Spyder..'group:name'..data.chat_.id_,data.chat_.title_)
+	end
+	elseif data.ID == "UpdateChannel" then  
+	if data.channel_.status_.ID == "ChatMemberStatusKicked" then 
+	if redis:get(Spyder..'group:add-100'..data.channel_.id_) then
+	local linkGroup = (redis:get(Spyder..'linkGroup-100'..data.channel_.id_) or "")
+	local NameGroup = (redis:get(Spyder..'group:name-100'..data.channel_.id_) or "")
+	send_msg(SUDO_ID,"📛| قام شخص بطرد البوت من المجموعه الاتيه : \n🏷| ألايدي : `-100"..data.channel_.id_.."`\n🗯| الـمجموعه : "..Flter_Markdown(NameGroup).."\n\n📮| تـم مسح كل بيانات المجموعه بنـجاح ")
+	rem_data_group('-100'..data.channel_.id_)
+	end
+	end
+	elseif data.ID == "UpdateFile" then 
+	if Uploaded_Groups_Ok then
+	Uploaded_Groups_Ok = false
+	local GetInfo = io.open(data.file_.path_, "r"):read('*a')
+	local All_Groups = JSON.decode(GetInfo)
+	for k,IDS in pairs(All_Groups.Groups) do
+	redis:mset(
+	Spyder..'group:name'..k,IDS.Title,
+	Spyder..'num_msg_max'..k,5,
+	Spyder..'group:add'..k,true,
+	Spyder..'lock_link'..k,true,
+	Spyder..'lock_spam'..k,true,
+	Spyder..'lock_webpage'..k,true,
+	Spyder..'lock_markdown'..k,true,
+	Spyder..'lock_flood'..k,true,
+	Spyder..'lock_bots'..k,true,
+	Spyder..'mute_forward'..k,true,
+	Spyder..'mute_contact'..k,true,
+	Spyder..'mute_document'..k,true,
+	Spyder..'mute_inline'..k,true,
+	Spyder..'lock_username'..k,true,
+	Spyder..'replay'..k,true
+	)
+	redis:sadd(Spyder..'group:ids',k) 
 
-elseif data.ID == "UpdateNewChat" then  
-if redis:get(Spyder..'group:add'..data.chat_.id_) then
-redis:set(Spyder..'group:name'..data.chat_.id_,data.chat_.title_)
-end
-elseif data.ID == "UpdateChannel" then  
-if data.channel_.status_.ID == "ChatMemberStatusKicked" then 
-if redis:get(Spyder..'group:add-100'..data.channel_.id_) then
-local linkGroup = (redis:get(Spyder..'linkGroup-100'..data.channel_.id_) or "")
-local NameGroup = (redis:get(Spyder..'group:name-100'..data.channel_.id_) or "")
-send_msg(SUDO_ID,"📛| قام شخص بطرد البوت من المجموعه الاتيه : \n🏷| ألايدي : `-100"..data.channel_.id_.."`\n🗯| الـمجموعه : "..Flter_Markdown(NameGroup).."\n\n📮| تـم مسح كل بيانات المجموعه بنـجاح ")
-rem_data_group('-100'..data.channel_.id_)
-end
-end
-elseif data.ID == "UpdateFile" then 
-if Uploaded_Groups_Ok then
-Uploaded_Groups_Ok = false
-local GetInfo = io.open(data.file_.path_, "r"):read('*a')
-local All_Groups = JSON.decode(GetInfo)
-for k,IDS in pairs(All_Groups.Groups) do
-redis:mset(
-Spyder..'group:name'..k,IDS.Title,
-Spyder..'num_msg_max'..k,5,
-Spyder..'group:add'..k,true,
-Spyder..'lock_link'..k,true,
-Spyder..'lock_spam'..k,true,
-Spyder..'lock_webpage'..k,true,
-Spyder..'lock_markdown'..k,true,
-Spyder..'lock_flood'..k,true,
-Spyder..'lock_bots'..k,true,
-Spyder..'mute_forward'..k,true,
-Spyder..'mute_contact'..k,true,
-Spyder..'mute_document'..k,true,
-Spyder..'mute_inline'..k,true,
-Spyder..'lock_username'..k,true,
-Spyder..'replay'..k,true
-)
-redis:sadd(Spyder..'group:ids',k) 
-
-if IDS.Admins then
-for user,ID in pairs(IDS.Admins) do
-redis:hset(Spyder..'username:'..ID,'username',user)
-redis:sadd(Spyder..'admins:'..k,ID)
-end
-end
-if IDS.Creator then
-for user,ID in pairs(IDS.Creator) do
-redis:hset(Spyder..'username:'..ID,'username',user)
-redis:sadd(Spyder..':MONSHA_BOT:'..k,ID)
-end
-end
-if IDS.Owner then
-for user,ID in pairs(IDS.Owner) do
-redis:hset(Spyder..'username:'..ID,'username',user)
-redis:sadd(Spyder..'owners:'..k,ID)
-end
-end
-end
-io.popen("rm -fr ../.telegram-cli/data/document/*")
-sendMsg(Uploaded_Groups_CH,Uploaded_Groups_MS,'📦*¦* تم رفع آلنسـخهہ‏‏ آلآحتيآطـيهہ\n⚖️*¦* حآليآ عدد مـجمـوعآتگ هہ‏‏يهہ‏‏ *'..redis:scard(Spyder..'group:ids')..'* 🌿\n✓')
-end
-elseif data.ID == "UpdateUser" then  
-if data.user_.type_.ID == "UserTypeDeleted" then
-print("¦ userTypeDeleted")
-redis:srem(Spyder..'users',data.user_.id_)
-elseif data.user_.type_.ID == "UserTypeGeneral" then
-local CheckUser = redis:hgetall(Spyder..'username:'..data.user_.id_).username
-if data.user_.username_  then 
-USERNAME = '@'..data.user_.username_
-else
-USERNAME = data.user_.first_name_..' '..(data.user_.last_name_ or "" )
-end	
-if CheckUser and CheckUser ~= USERNAME  then
-print("¦ Enter Update User ")
-redis:hset(Spyder..'username:'..data.user_.id_,'username',USERNAME)
-end 
-end
-elseif data.ID == "UpdateMessageEdited" then
-GetMsgInfo(data.chat_id_,data.message_id_,function(arg,data)
-msg = data
-msg.edited = true
-msg.text = data.content_.text_
-input_inFo(msg)  
-end,nil)
-elseif data.ID == "UpdateOption" and data.value_.value_ == "Ready" then
-UpdateSource() dofile("./inc/Run.lua")
-tdcli_function({ID='GetChat',chat_id_ = SUDO_ID},function(arg,data)end,nil)
-end
-
-
+	if IDS.Admins then
+	for user,ID in pairs(IDS.Admins) do
+	redis:hset(Spyder..'username:'..ID,'username',user)
+	redis:sadd(Spyder..'admins:'..k,ID)
+	end
+	end
+	if IDS.Creator then
+	for user,ID in pairs(IDS.Creator) do
+	redis:hset(Spyder..'username:'..ID,'username',user)
+	redis:sadd(Spyder..':MONSHA_BOT:'..k,ID)
+	end
+	end
+	if IDS.Owner then
+	for user,ID in pairs(IDS.Owner) do
+	redis:hset(Spyder..'username:'..ID,'username',user)
+	redis:sadd(Spyder..'owners:'..k,ID)
+	end
+	end
+	end
+	io.popen("rm -fr ../.telegram-cli/data/document/*")
+	sendMsg(Uploaded_Groups_CH,Uploaded_Groups_MS,'📦*¦* تم رفع آلنسـخهہ‏‏ آلآحتيآطـيهہ\n⚖️*¦* حآليآ عدد مـجمـوعآتگ هہ‏‏يهہ‏‏ *'..redis:scard(Spyder..'group:ids')..'* 🌿\n✓')
+	end
+	elseif data.ID == "UpdateUser" then  
+	if data.user_.type_.ID == "UserTypeDeleted" then
+	print("¦ userTypeDeleted")
+	redis:srem(Spyder..'users',data.user_.id_)
+	elseif data.user_.type_.ID == "UserTypeGeneral" then
+	local CheckUser = redis:hgetall(Spyder..'username:'..data.user_.id_).username
+	if data.user_.username_  then 
+	USERNAME = '@'..data.user_.username_:gsub('_',[[\_]])
+	else
+	USERNAME = data.user_.first_name_..' '..(data.user_.last_name_ or "" )
+	end	
+	if CheckUser and CheckUser ~= USERNAME  then
+	print("¦ Enter Update User ")
+	redis:hset(Spyder..'username:'..data.user_.id_,'username',USERNAME)
+	end 
+	end
+	elseif data.ID == "UpdateMessageEdited" then
+	GetMsgInfo(data.chat_id_,data.message_id_,function(arg,data)
+	msg = data
+	msg.edited = true
+	msg.text = data.content_.text_
+	input_inFo(msg)  
+	end,nil)
+	elseif data.ID == "UpdateOption" and data.value_.value_ == "Ready" then
+	UpdateSource() dofile("./inc/Run.lua")
+	tdcli_function({ID='GetChat',chat_id_ = SUDO_ID},function(arg,data)end,nil)
+	end
+	
+	
 end

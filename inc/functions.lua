@@ -6,13 +6,13 @@
 #    ▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @TH3Spyder
 #      ███    ██▄ ███    ███          ███          ███ ¦ Dev : @OMMMM
 #      ███    ███ ███    ███    ▄█    ███    ▄█    ███
-#    ▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ Source TH3Spyder BY @TH3BS
+#    ▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ Source TH3Spyder BY @SPYDERTELE
 #---------------------------------------------------------------------
 ]]
 
 
 function dl_cb(a,d)  end
-
+ 
 function GetInputFile(file)
 local file = file or "" 
 if file:match('/') then
@@ -67,8 +67,8 @@ caption_ = caption or ''
 }
 },func or dl_cb,nil)
 end
-
-
+	
+	 
 function sendVoice(chat_id,reply_id,voice,caption,func)
 tdcli_function({
 ID="SendMessage",
@@ -155,7 +155,7 @@ height_ = 0,
 caption_ = caption or ''
 }},func or dl_cb,nil)
 end
-
+ 
 
 function sendDocument(chat_id,reply_id,document,caption,func)
 tdcli_function({
@@ -205,7 +205,7 @@ length_ = length ,
 user_id_ = user_id },},},
 },dl_cb, nil)
 end
-
+   
 function sendChatAction(chatid,action,func)
 tdcli_function({ID = 'SendChatAction',chat_id_ = chatid,action_ = {ID = "SendMessage"..action.."Action",progress_ = 1},}, func or dl_cb,nil)
 end
@@ -213,7 +213,9 @@ end
 --================================{{  GetChannelFull  }} ===================================
 function download_file(Link,Bath)
 local Get_Files, res = https.request(Link)
+print(res)
 if res == 200 then
+print("DONLOADING_FROM_URL: "..Link)
 local FileD = io.open(Bath,'w+')
 FileD:write(Get_Files)
 FileD:close()
@@ -246,7 +248,7 @@ end
 function GetPhotoUser(User,func,Arg)
 tdcli_function({ID='GetUserProfilePhotos',user_id_=User,offset_=0,limit_=1},func,Arg or nil)
 end
-
+  
 function GetMsgInfo(UID,Msg_id,Cb,Arg)
 tdcli_function({ID="GetMessage",chat_id_ = UID,message_id_ = Msg_id},Cb,Arg or nil)
 end
@@ -407,9 +409,9 @@ end
 
 
 function answerCallbackQuery(callback_query_id, text, show_alert)
-local url = ApiToken..'/answerCallbackQuery?callback_query_id='..callback_query_id..'&text='..URL.escape(text)
-if show_alert then url = url..'&show_alert=true' end
-return GetApi(url)
+	local url = ApiToken..'/answerCallbackQuery?callback_query_id='..callback_query_id..'&text='..URL.escape(text)
+	if show_alert then url = url..'&show_alert=true' end
+	return GetApi(url)
 end
 
 
@@ -423,13 +425,13 @@ end
 function UpdateSource(msg,edit)
 if edit then EditMsg(msg.chat_id_,msg.id_,'10% - |█          |') end
 if edit then EditMsg(msg.chat_id_,msg.id_,'20% - |███         |') end
-download_file('https://raw.githubusercontent.com/TH3BS/Spyder/master/inc/Run.lua','./inc/Run.lua')
+download_file('https://raw.githubusercontent.com/SPYDERTELE/Spyder/master/inc/Run.lua','./inc/Run.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'40% - |█████       |') end
-download_file('https://raw.githubusercontent.com/TH3BS/Spyder/master/inc/locks.lua','./inc/locks.lua')
+download_file('https://raw.githubusercontent.com/SPYDERTELE/Spyder/master/inc/locks.lua','./inc/locks.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'60% - |███████     |') end
-download_file('https://raw.githubusercontent.com/TH3BS/Spyder/master/inc/Script.lua','./inc/Script.lua')
+download_file('https://raw.githubusercontent.com/SPYDERTELE/Spyder/master/inc/Script.lua','./inc/Script.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'80% - |█████████   |') end
-download_file('https://raw.githubusercontent.com/TH3BS/Spyder/master/inc/functions.lua','./inc/functions.lua')
+download_file('https://raw.githubusercontent.com/SPYDERTELE/Spyder/master/inc/functions.lua','./inc/functions.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'100% - |█████████████|\n\n🔝*¦* تم تحديث السورس الى اصدار *v'..redis:get(Spyder..":VERSION")..'*\n📟*¦* تم اعاده تشغيل السورس بنجاح') end
 if edit then dofile("./inc/Run.lua") end
 print("Update Source And Reload ~ ./inc/Run.lua")
@@ -496,13 +498,13 @@ function Hyper_Link_Name(data)
 if data.first_name_ then 
 if data.last_name_ then 
 Name = data.first_name_ .." "..data.last_name_
-else 
+ else 
 Name = data.first_name_ 
 end
-usernn = data.username_ or "th3bs"
+usernn = data.username_ or "SPYDERTELE"
 else 
 Name = data.title_
-usernn = data.type_.user_.username_ or "th3bs"
+usernn = data.type_.user_.username_ or "SPYDERTELE"
 end
 Name = Name:gsub('[[][]]','')
 Name = FlterName(Name,10)
@@ -514,23 +516,23 @@ end
 
 
 function Flter_Markdown(TextMsg) 
-local Text = tostring(TextMsg)
-Text = Text:gsub('_',[[\_]])
-Text = Text:gsub('*','\\*')
-Text = Text:gsub('`','\\`')
-local Hyperlink = Text:match('[(](.*)[)]')
-local Hyperlink1 = Text:match('[[](.*)[]]')
-if Hyperlink and Hyperlink1 then
-Hyperlink = "("..Hyperlink:gsub([[\_]],'_')..")"
-Text = Text:gsub('[(](.*)[)]',Hyperlink ) 
-Hyperlink1 = Hyperlink1:gsub([[\_]],'_')
-Hyperlink1 = "["..Hyperlink1:gsub('[[][]]','').."]"
-Text = Text:gsub('[[](.*)[]]',Hyperlink1 ) 
-end
-return Text 
-end
+  local Text = tostring(TextMsg)
+  Text = Text:gsub('_',[[\_]])
+  Text = Text:gsub('*','\\*')
+  Text = Text:gsub('`','\\`')
+  local Hyperlink = Text:match('[(](.*)[)]')
+  local Hyperlink1 = Text:match('[[](.*)[]]')
+  if Hyperlink and Hyperlink1 then
+  Hyperlink = "("..Hyperlink:gsub([[\_]],'_')..")"
+  Text = Text:gsub('[(](.*)[)]',Hyperlink ) 
+  Hyperlink1 = Hyperlink1:gsub([[\_]],'_')
+  Hyperlink1 = "["..Hyperlink1:gsub('[[][]]','').."]"
+  Text = Text:gsub('[[](.*)[]]',Hyperlink1 ) 
+  end
+  return Text 
+  end
 
-
+  
 
 function FlterName(Name,Num)
 if Name.last_name_ then
@@ -722,53 +724,141 @@ Name = utf8.gsub(Name,"ᵎ","")
 Name = utf8.gsub(Name,"║","")
 Name = utf8.gsub(Name,"ꪾ","")
 Name = utf8.gsub(Name,"ꪳ","")
-Name = utf8.gsub(Name,"ㅤ","")
 
 if utf8.len(Name) > CharNumber then
 Name = utf8.sub(Name,0,CharNumber)..'...' 
 end
 local CheckName = Name:gsub(' ','')
-if CheckName == "" then 
+if not CheckName then 
 Name = 'الاسم سبام 📛'
 end
 return utf8.escape(Name)
 end
 
---[[
+
 function KlmatMmno3(text)
-resq = false
-local listFshars = redis:get("UpdatWordsFshar")
-if not listFshars then
-local Fshar_Word , res = https.request('https://api.th3Spyder.com/Words_Fshars.txt')
-if res ~= 200 then Fshar_Word = "\n" end
-redis:setex("UpdatWordsFshar",3600,Fshar_Word)
-print(Fshar_Word)
-end
-
-
-for lines in listFshars:gmatch('[^\r\n]+') do
-if text:match('^('..lines..')$') or text:match(lines..' .*') or text:match('.* '..lines) then
-print("Word is Fshar")
-resq = true
-end end
-print(resq)
-return resq
-end
+Klmat =[[
+كسمك
+كسامك
+كساختك
+كس اختك
+كسختك
+كسمرتك
+كس مرتك
+طيزي
+طيزك
+انيجك
+انيجك؟
+تنيج
+كحبه
+خوات كحبه
+فرخ
+موطه
+كسالله
+كس الله
+عير
+كساسه
+مناويج
+تنيجون
+سكسي
+xxnx
+XXNX
+xxxn
+XXXN
+كوسي
+عيري
+موجب
+سالب
+بلاع العير
+بلاع الكس
+مصاص الخصوه
+ابن الكس
+ابن العار
+ابن العاهره
+منيوج
+فروخ
+كواد
+كواده
+منيوجه
+نجته
+بعصته
+بعصتهم
+ناجني
+بعصني
+عيرك
+كسك
+fuck
+FUCK
+sexy
+SEXY
+ناجونه
+نجناهم
+بعصناهم
+خصاوي
+عيوره
+كيري كن امك
+كيرى
+كيرى كن امك
+ناجوك
+بی ناموس
+کسکش
+كير خوار
+كسليس
+ننه گوزو
+ننه كسكش
+بی پدر
+پدر کونی
+كسننه
+جنده
+مادره جنده
+بي ناموس
+بي شرف
+كسننت
+بي پدر ومادر
+خواهر جنده
+ننه كونى
+پسر کونی
+کیرم تو مادرت
+کیرم تو خانوادت
+پدر سگ
+خواهرت گایید
+مادرت گایید
+كحاب 
+فروخ 
+كسمك 
+كس امك 
+كس اختك 
+كسختك 
+نيج عمتك 
+نيج خالتك 
+نيج خالتج 
+كحبة
+ام العيوره 
+بلاعه عير 
+كحيبه 
+تم البعص 
+امك انيجه 
+امج انيجه 
+بلاعه العير 
+دمبك العير 
+ابن سطل 
+ابن العريض 
+نعل ابوك 
+نعل ابوج
+ابن العريضه 
+بت العريضه 
+كس عمتك 
+كس بيبيتك
+كس
 ]]
-
-
-function KlmatMmno3(text)
 resq = false
-if not Fshar_Word or not redis:get("UpdatWordsFshar") then
-Fshar_Word , res = https.request('https://api.th3Spyder.com/Words_Fshars.txt')
-if res ~= 200 then Fshar_Word = "\n" end
-redis:setex("UpdatWordsFshar",3600,true)
-end
-for lines in Fshar_Word:gmatch('[^\r\n]+') do
-if text:match('^('..lines..')$') or text:match(lines..' .*') or text:match('.* '..lines) then
-print("Word is Fshar")
+
+for lines in Klmat:gmatch('[^\r\n]+') do
+if text:match(lines) then
 resq = true
-end end
+end
+end
+print(resq)
 return resq
 end
 
@@ -799,22 +889,20 @@ end
 function Getrtba(UserID,ChatID)
 if UserID == our_id then 
 var = 'هذا البوت 🙄☝🏿' 
-elseif UserID == 819385837 or UserID == 60809019  then 
-var = 'مطور السورس'
 elseif  UserID == SUDO_ID then
-var = redis:get(Spyder..":RtbaNew1:"..ChatID) or 'مطور اساسي 👨🏻‍✈️' 
+var = 'مطور اساسي 👨🏻‍✈️' 
 elseif redis:sismember(Spyder..':SUDO_BOT:',UserID) then
-var = redis:get(Spyder..":RtbaNew2:"..ChatID) or 'مطور البوت 👨🏽‍💻' 
+var = 'مطور البوت 👨🏽‍💻' 
 elseif redis:sismember(Spyder..':MONSHA_Group:'..ChatID,UserID) then
-var = redis:get(Spyder..":RtbaNew3:"..ChatID) or ' المنشىء اساسي👷🏽' 
+var = ' المنشىء اساسي👷🏽' 
 elseif redis:sismember(Spyder..':MONSHA_BOT:'..ChatID,UserID) then
-var = redis:get(Spyder..":RtbaNew4:"..ChatID) or ' المنشىء 👷🏽' 
+var = ' المنشىء 👷🏽' 
 elseif redis:sismember(Spyder..'owners:'..ChatID,UserID) then
-var = redis:get(Spyder..":RtbaNew5:"..ChatID) or 'مدير البوت 👨🏼‍⚕️' 
+var = 'مدير البوت 👨🏼‍⚕️' 
 elseif redis:sismember(Spyder..'admins:'..ChatID,UserID) then
-var = redis:get(Spyder..":RtbaNew6:"..ChatID) or 'ادمن في البوت 👨🏼‍🎓' 
+var = 'ادمن في البوت 👨🏼‍🎓' 
 elseif redis:sismember(Spyder..'whitelist:'..ChatID,UserID) then
-var = redis:get(Spyder..":RtbaNew7:"..ChatID) or 'عضو مميز ⭐️' 
+var = 'عضو مميز ⭐️' 
 else
 var = 'فقط عضو 🙍🏼‍♂️' 
 end
@@ -822,30 +910,24 @@ return var
 end
 
 function convert_Klmat(msg,data,Replay,MD)
-local edited = (redis:get(Spyder..':edited:'..msg.chat_id_..':'..msg.sender_user_id_) or 0)
-local points = redis:get(Spyder..':User_Points:'..msg.chat_id_..msg.sender_user_id_) or 0
-local NameUser = ResolveName(data)
-local Emsgs = redis:get(Spyder..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_) or 1
-if data.username_ then UserNameID = "@"..data.username_ else UserNameID = "لا يوجد" end  
-if Replay then
-Replay = Replay:gsub("{الاسم}",NameUser)
-Replay = Replay:gsub("{الايدي}",msg.sender_user_id_)
-Replay = Replay:gsub("{المعرف}",UserNameID)
-Replay = Replay:gsub("{الرتبه}",msg.TheRank)
-Replay = Replay:gsub("{التفاعل}",Get_Ttl(Emsgs))
-Replay = Replay:gsub("{الرسائل}",Emsgs)
-Replay = Replay:gsub("{التعديل}",edited)
-Replay = Replay:gsub("{النقاط}",points)
-Replay = Replay:gsub("{البوت}",redis:get(Spyder..':NameBot:'))
-Replay = Replay:gsub("{المطور}",SUDO_USER)
-else
-Replay =""
-end
-if MD then
-return Replay
-else
-return Replay
-end
+  local edited = (redis:get(Spyder..':edited:'..msg.chat_id_..':'..msg.sender_user_id_) or 0)
+  local points = redis:get(Spyder..':User_Points:'..msg.chat_id_..msg.sender_user_id_) or 0
+  local NameUser = ResolveName(data)
+  local Emsgs = redis:get(Spyder..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_) or 1
+  if data.username_ then UserNameID = "@"..data.username_ else UserNameID = "لا يوجد" end  
+  Replay = Replay:gsub("{الاسم}",NameUser)
+  Replay = Replay:gsub("{الايدي}",msg.sender_user_id_)
+  Replay = Replay:gsub("{المعرف}",UserNameID)
+  Replay = Replay:gsub("{الرتبه}",msg.TheRank)
+  Replay = Replay:gsub("{التفاعل}",Get_Ttl(Emsgs))
+  Replay = Replay:gsub("{الرسائل}",Emsgs)
+  Replay = Replay:gsub("{التعديل}",edited)
+  Replay = Replay:gsub("{النقاط}",points)
+  if MD then
+  return Replay
+  else
+  return Replay
+  end
 end
 
 
@@ -884,71 +966,45 @@ end
 
 
 --================================{{  List Sudoer  }} ===================================
-
+  
 function TagAll(msg)
-message = "قائمه التاكـ : \n\n"
-local monshaas = redis:smembers(Spyder..':MONSHA_Group:'..msg.chat_id_)
-local monsha = redis:smembers(Spyder..':MONSHA_BOT:'..msg.chat_id_)
-local Owners = redis:smembers(Spyder..'owners:'..msg.chat_id_)
-local Admins = redis:smembers(Spyder..'admins:'..msg.chat_id_)
-local mmez = redis:smembers(Spyder..'whitelist:'..msg.chat_id_)
+  message = "قائمه التاكـ : \n\n"
+  local monshaas = redis:smembers(Spyder..':MONSHA_Group:'..msg.chat_id_)
+  local monsha = redis:smembers(Spyder..':MONSHA_BOT:'..msg.chat_id_)
+  local Owners = redis:smembers(Spyder..'owners:'..msg.chat_id_)
+  local Admins = redis:smembers(Spyder..'admins:'..msg.chat_id_)
+  local mmez = redis:smembers(Spyder..'whitelist:'..msg.chat_id_)
 if #monshaas==0 and #monsha==0 and #Owners==0 and #Admins==0 and #mmez==0 then return "* لا يوجد قائمه حاليا \n📛 *" end
 i = 1
 for k,v in pairs(mmez) do
-if not message:match(v) then
-local info  = redis:hgetall(Spyder..'username:'..v)
-if info and info.username and info.username:match("@[%a%d_]+") then
-message = message ..i.."-l ["..info.username..'] \n'
-else
-message = message ..i.. '-l ['..info.username..'](t.me/TH3bs) \n'
-end
-
-i=i+1
+  if not message:match(v) then
+    local info  = redis:hgetall(Spyder..'username:'..v)
+  message = message ..i.. '-l ['..(info.username or '')..']\n' i=i+1
 end 
 end 
 for k,v in pairs(Admins) do
-if not message:match(v) then
-local info  = redis:hgetall(Spyder..'username:'..v)
-if info and info.username and info.username:match("@[%a%d_]+") then
-message = message ..i.."-l ["..info.username..'] \n'
-else
-message = message ..i.. '-l ['..info.username..'](t.me/TH3bs) \n'
-end
-i=i+1
+  if not message:match(v) then
+    local info  = redis:hgetall(Spyder..'username:'..v)
+  message = message ..i.. '-l ['..(info.username or '')..']\n' i=i+1
 end 
 end 
 for k,v in pairs(Owners) do
-if not message:match(v) then
-local info  = redis:hgetall(Spyder..'username:'..v)
-if info and info.username and info.username:match("@[%a%d_]+") then
-message = message ..i.."-l ["..info.username..'] \n'
-else
-message = message ..i.. '-l ['..info.username..'](t.me/TH3bs) \n'
-end
-i=i+1
+  if not message:match(v) then
+    local info  = redis:hgetall(Spyder..'username:'..v)
+  message = message ..i.. '-l ['..(info.username or '')..']\n' i=i+1
 end 
 end
 for k,v in pairs(monsha) do
-if not message:match(v) then
-local info  = redis:hgetall(Spyder..'username:'..v)
-if info and info.username and info.username:match("@[%a%d_]+") then
-message = message ..i.."-l ["..info.username..'] \n'
-else
-message = message ..i.. '-l ['..info.username..'](t.me/TH3bs) \n'
-end
-i=i+1
+  if not message:match(v) then
+    local info  = redis:hgetall(Spyder..'username:'..v)
+  message = message ..i.. '-l ['..(info.username or '')..']\n' i=i+1
 end 
 end 
-
+ 
 for k,v in pairs(monshaas) do
-if not message:match(v) then
-local info  = redis:hgetall(Spyder..'username:'..v)
-if info and info.username and info.username:match("@[%a%d_]+") then
-message = message ..i.."-l ["..info.username..'] \n'
-else
-message = message ..i.. '-l ['..info.username..'](t.me/TH3bs) \n'
-end
-i=i+1
+  if not message:match(v) then
+  local info  = redis:hgetall(Spyder..'username:'..v)
+  message = message ..i.. '-l ['..(info.username or '')..']\n' i=i+1
 end 
 end 
 return message
@@ -956,17 +1012,15 @@ end
 
 function sudolist(msg)
 local list = redis:smembers(Spyder..':SUDO_BOT:')
-message = '👨🏽‍💻*¦* قائمه الـمـطـوريـن : \n\n`★`*_* ['..SUDO_USER..'] ➣ (' ..SUDO_ID.. '){'..redis:scard(Spyder..'mtwr_count'..SUDO_ID)..'}\n*----------------------------------*\n'
+message = '👨🏽‍💻*¦* قائمه الـمـطـوريـن : \n\n`★`*_* '..SUDO_USER..' ➣ (' ..SUDO_ID.. '){'..redis:scard(Spyder..'mtwr_count'..SUDO_ID)..'}\n*----------------------------------*\n'
 if #list==0 then  message = message.."* لا يوجد مطورين حاليا \n📛 *"
 else
 for k,v in pairs(list) do
 local info  = redis:hgetall(Spyder..'username:'..v)
 local count = redis:scard(Spyder..'mtwr_count'..v)
-if info and info.username and info.username:match("@[%a%d_]+") then
-message = message ..k.."-l ["..info.username..'] » (`' ..v.. '`){'..count..'} \n'
-else
-message = message ..k.. '-l ['..info.username..'](t.me/TH3bs) l » (`' ..v.. '`){'..count..'} \n'
-end
+message = message ..k.. '-l ['..(info.username or '')..'] l » (`' ..v.. '`){'..count..'} \n'
+--redis:del(Spyder..'username:'..v)
+
 end 
 end
 if utf8.len(message) > 4096 then
@@ -981,39 +1035,39 @@ function conslist(msg)
 
 
 
-message = '*⭐️¦ المنشئيين الاساسيين:*\n\n'
-local monsha = redis:smembers(Spyder..':MONSHA_Group:'..msg.chat_id_)
-if #monsha == 0 then 
-message = message .."📛| Not Super Creator ~⪼  لا يوجد منشئيين ااساسيين !\n"
-else
-for k,v in pairs(monsha) do
-local info = redis:hgetall(Spyder..'username:'..v)
-if info and info.username and info.username:match("@[%a%d_]+") then
-message = message ..k.."-l ["..info.username..'] » (`' ..v.. '`) \n'
-else
-message = message ..k.. '-l ['..info.username..'](t.me/TH3bs) l » (`' ..v.. '`) \n'
-end
-end
-end
-
-message = message..'\n\n\n*🔅¦ المنشئيين :*\n\n'
-local monsha = redis:smembers(Spyder..':MONSHA_BOT:'..msg.chat_id_)
-if #monsha == 0 then 
-message = message .."📛| Not Creator ~⪼ لا يوجد منشئيين !\n"
-else
-for k,v in pairs(monsha) do
-local info = redis:hgetall(Spyder..'username:'..v)
-if info and info.username and info.username:match("@[%a%d_]+") then
-message = message ..k.."-l ["..info.username..'] » (`' ..v.. '`) \n'
-else
-message = message ..k.. '-l ['..info.username..'](t.me/TH3bs) l » (`' ..v.. '`) \n'
-end
-end
-end
-return message
+    message = '*⭐️¦ المنشئيين الاساسيين:*\n\n'
+    local monsha = redis:smembers(Spyder..':MONSHA_Group:'..msg.chat_id_)
+    if #monsha == 0 then 
+    message = message .."📛| Not Super Creator ~⪼  لا يوجد منشئيين ااساسيين !\n"
+    else
+    for k,v in pairs(monsha) do
+    local info = redis:hgetall(Spyder..'username:'..v)
+    if info and info.username and info.username:match("@[%a%d_]+") then
+    message = message ..k.."-l ["..info.username..'] » (`' ..v.. '`) \n'
+    else
+    message = message ..k.."-l ["..(info.username or '')..']\n'
+    end
+    end
+    end
+    
+    message = message..'\n\n\n*🔅¦ المنشئيين :*\n\n'
+    local monsha = redis:smembers(Spyder..':MONSHA_BOT:'..msg.chat_id_)
+    if #monsha == 0 then 
+    message = message .."📛| Not Creator ~⪼ لا يوجد منشئيين !\n"
+    else
+    for k,v in pairs(monsha) do
+    local info = redis:hgetall(Spyder..'username:'..v)
+    if info and info.username and info.username:match("@[%a%d_]+") then
+    message = message ..k.."-l ["..info.username..'] » (`' ..v.. '`) \n'
+    else
+    message = message ..k.."-l ["..(info.username or '')..'] l » (`' ..v.. '`) \n'
+    end
+    end
+    end
+    return message
 end
 --================================{{  List owner  }} ===================================
-
+  
 function ownerlist(msg)
 message = '*📋¦ قائمه المدراء :*\n\n'
 local list = redis:smembers(Spyder..'owners:'..msg.chat_id_)
@@ -1025,7 +1079,7 @@ local info = redis:hgetall(Spyder..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..(info.username or '')..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/TH3bs) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..(info.username or '')..'] l » (`' ..v.. '`) \n'
 end
 end
 end
@@ -1047,7 +1101,7 @@ local info = redis:hgetall(Spyder..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/TH3bs) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..(info.username or '')..'] l » (`' ..v.. '`) \n'
 end
 end
 if utf8.len(message) > 4096 then
@@ -1068,7 +1122,7 @@ local info = redis:hgetall(Spyder..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/TH3bs) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..(info.username or '')..'] l » (`' ..v.. '`) \n'
 end
 end
 if utf8.len(message) > 4096 then
@@ -1098,7 +1152,7 @@ local info = redis:hgetall(Spyder..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/TH3bs) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..(info.username or '')..'] l » (`' ..v.. '`) \n'
 end
 end
 if utf8.len(message) > 4096 then
@@ -1129,7 +1183,12 @@ local info = redis:hgetall(Spyder..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/TH3bs) l » (`' ..v.. '`) \n'
+if info.username:match("^(%d+)") then
+username = info.username
+else
+username = info.username:match("[(]tg://user[?]id=(%d+)[)]")
+end
+message = message ..k.. '-l '..(username or '')..' l » (`' ..v.. '`) \n'
 end 
 end 
 if utf8.len(message) > 4096 then
@@ -1159,7 +1218,12 @@ local info = redis:hgetall(Spyder..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/TH3bs) l » (`' ..v.. '`) \n'
+if info.username:match("^(%d+)") then
+username = info.username
+else
+username = info.username:match("[(]tg://user[?]id=(%d+)[)]")
+end
+message = message ..k.. '-l '..(username or '')..' l » (`' ..v.. '`) \n'
 end
 end 
 if utf8.len(message) > 4096 then
@@ -1172,9 +1236,8 @@ end
 --================================{{  Filter Words  }} ===================================
 
 function FilterX(msg,text)
-text = tostring(text)
-local var = false
-if not msg.Admin and not msg.Special then -- للاعضاء فقط  
+  text = tostring(text)
+  local var = false
 local list = redis:smembers(Spyder..':Filter_Word:'..msg.chat_id_)
 if #list ~=0 then
 for k,word in pairs(list) do
@@ -1188,7 +1251,6 @@ end
 end
 else
 var = false
-end 
 end 
 return var
 end
@@ -1436,19 +1498,15 @@ end
 
 function modadd(msg)
 if redis:get(Spyder..'lock_service') then
-lock_servicez = true
+lock_service = true
 else
-lock_servicez = false
+lock_service = false
 end
-if not msg.SudoUser and not lock_servicez then return '🚸¦ أنـت لـسـت الـمـطـور ⚙️' end
+if not msg.SudoUser and not lock_service then return '🚸¦ أنـت لـسـت الـمـطـور ⚙️' end
 if msg.is_post_ then return "🚸¦ عذرا هذا بوت حمايه للمجموعات وليس للقنوات  " end
 if msg.type ~= "channel" then return '🚸¦ البوت يعمل فقط في المجموعات العامه لذا يجب ترقية المجموعه ووضع معرف للمجموعه لتصبح عامه ⚙️' end
+if redis:get(Spyder..'group:add'..msg.chat_id_) then  return '🎗*¦* المجموعه بالتأكيد ✓️ تم تفعيلها' end
 
-
-GetUserID(msg.sender_user_id_,function(arg,data)
-msg = arg.msg 
-local NameUser   = Hyper_Link_Name(data)
-if redis:get(Spyder..'group:add'..msg.chat_id_) then  return sendMsg(msg.chat_id_,msg.id_,'📮¦ بواسطه ⋙「 '..NameUser..' 」 \n📬¦ المجموعه بالتأكيد ✓️ تم تفعيلها \n✓️') end
 local UserChaneel = redis:get(Spyder..":UserNameChaneel")
 if UserChaneel and not msg.SudoBase then
 local url , res = https.request(ApiToken..'/getchatmember?chat_id='..UserChaneel..'&user_id='..msg.sender_user_id_)
@@ -1456,20 +1514,14 @@ if res == 200 then
 print(url) 
 local Req = JSON.decode(url)
 if Req.ok and Req.result and Req.result.status == "left" or Req.result.status == "kicked" then
-return sendMsg(msg.chat_id_,msg.id_,"🚸| آشـترگ بآلقنآ‌‏هہ آولآ ["..UserChaneel.."] \n🔛| ثم آرجع آرسـل تفعيل .")
+return "🚸| آشـترگ بآلقنآ‌‏هہ آولآ ["..UserChaneel.."] \n🔛| ثم آرجع آرسـل تفعيل ."
 end
 else
 return "🚸| آشـترگ بآلقنآ‌‏هہ آولآ ["..UserChaneel.."] \n🔛| ثم آرجع آرسـل تفعيل ."
 end
 end
-
-
-
-if redis:get(Spyder..'lock_service') then
-lock_servicez = true
-else
-lock_servicez = false
-end
+ 
+ 
 
 GetFullChat(msg.chat_id_,function(arg,data) 
 local GroupUsers = tonumber(redis:get(Spyder..':addnumberusers') or 0)
@@ -1478,13 +1530,15 @@ if GroupUsers  >= Groupcount and not arg.SudoBase then
 return sendMsg(arg.chat_id_,arg.id_,'🚸*¦* لآ يمـگنني تفعيل آلبوت في آلمـجمـوعهہ‏ يجب آن يگون آگثر مـن *【'..GroupUsers..'】* عضـو 👤')
 end
 if data.channel_ and data.channel_.status_.ID  == "ChatMemberStatusMember" then
-return sendMsg(arg.chat_id_,arg.id_,'📛*¦* عذرا البوت ليس ادمن  في المجموعه ♨️\n🔙*¦* يرجى رفعه ادمن لتتمكن من تفعيل البوت ✓️')
+return sendMsg(arg.chat_id_,arg.id_,'📛*¦* عذرا البوت ليس ادمن  في المجموعه ♨️\n🔙*¦* يرجى ترقيته ادمن لتتمكن من تفعيل البوت ✓️')
 end
-if arg.lock_servicez then 
-sendMsg(arg.chat_id_,arg.id_,'📮¦ بواسطه ⋙「 '..NameUser..' 」 \n📬¦ تـم تـفـعـيـل الـمـجـمـوعـه ✓️ \n👨🏽‍🔧¦ وتم رفع جمـيع آلآدمـنيهہ‏‏‏ آلگروب بآلبوت \n✓')
+
+if arg.lock_service then 
+sendMsg(arg.chat_id_,arg.id_,'📮*¦ تـم تـفـعـيـل الـمـجـمـوعـه ✓️ \n👨🏽‍🔧¦¦* وتم رفع جمـيع آلآدمـنيهہ‏‏‏ آلگروب بآلبوت \n✓')
 else
-sendMsg(arg.chat_id_,arg.id_,'📮¦ بواسطه ⋙「 '..NameUser..' 」 \n📬¦ تـم تـفـعـيـل آلمـجمـوعهہ‏‏ \n✓️')
+sendMsg(arg.chat_id_,arg.id_,'📮¦ تـم تـفـعـيـل آلمـجمـوعهہ‏‏ \n✓️')
 end
+
 
 GetChannelAdministrators(arg.chat_id_,function(arg,data)
 for k,v in pairs(data.members_) do
@@ -1493,7 +1547,7 @@ GetUserID(v.user_id_,function(arg,data)
 redis:hset(Spyder..'username:'..data.id_,'username', ResolveUserName(data))
 redis:sadd(Spyder..':MONSHA_Group:'..arg.chat_id_,data.id_)
 end,{chat_id_=arg.chat_id_})
-elseif arg.lock_servicez and not data.members_[k].bot_info_ and data.members_[k].status_.ID == "ChatMemberStatusEditor" then
+elseif arg.lock_service and not data.members_[k].bot_info_ and data.members_[k].status_.ID == "ChatMemberStatusEditor" then
 if not redis:sismember(Spyder..'admins:'..arg.chat_id_,v.user_id_) then
 GetUserID(v.user_id_,function(arg,data)
 redis:hset(Spyder..'username:'..data.id_,'username',ResolveUserName(data))
@@ -1502,7 +1556,7 @@ end,{chat_id_=arg.chat_id_})
 end
 end
 end
-end,25,{chat_id_=arg.chat_id_,sender_user_id_=arg.sender_user_id_,lock_servicez=arg.lock_servicez})
+end,25,{chat_id_=arg.chat_id_,sender_user_id_=arg.sender_user_id_,lock_service=arg.lock_service})
 
 
 
@@ -1528,10 +1582,8 @@ Spyder..'lock_username'..arg.chat_id_,true,
 Spyder..'num_msg_max'..arg.chat_id_,5, 
 Spyder..'lock_edit'..arg.chat_id_,true,
 Spyder..'replay'..arg.chat_id_,true,
-Spyder..'lock_rdodSource'..arg.chat_id_,true,
 Spyder.."lock_KickBan"..msg.chat_id_,true,
 Spyder.."lock_mmno3"..msg.chat_id_,true,
-Spyder.."lock_KickBan"..msg.chat_id_,true,
 Spyder.."lock_linkk"..msg.chat_id_,true
 )
 redis:sadd(Spyder..'group:ids',arg.chat_id_) 
@@ -1568,8 +1620,7 @@ end,{chat_id_=arg.chat_id_,sender_user_id_=arg.sender_user_id_,NameGroup=NameGro
 end,{chat_id_=arg.chat_id_,sender_user_id_=arg.sender_user_id_,Groupcount=Groupcount,invite_link_=data.invite_link_})
 
 
-end,{chat_id_=msg.chat_id_,id_=msg.id_,sender_user_id_=msg.sender_user_id_,lock_servicez=lock_servicez})
-end,{msg=msg})
+end,{chat_id_=msg.chat_id_,id_=msg.id_,sender_user_id_=msg.sender_user_id_,lock_service=lock_service})
 return false
 end
 
@@ -1595,11 +1646,9 @@ USERCAR = utf8.len(USERNAME)
 
 if cmd == "tqeed" then
 if UserID == our_id then   
-return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك طرد البوت\n🛠") 
+return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك تقييد البوت\n🛠") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك طرد المطور الاساسي\n🛠") 
-elseif UserID == 819385837 or UserID == 60809019 then 
-return sendMsg(ChatID,MsgID,"⚜️*¦* لا يمكنك طرد مطور السورس\n🛠") 
 elseif redis:sismember(Spyder..':SUDO_BOT:',UserID) then 
 return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك طرد المطور\n🛠") 
 elseif redis:sismember(Spyder..':MONSHA_BOT:'..ChatID,UserID) then 
@@ -1611,80 +1660,80 @@ return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك طرد المدير\n🛠"
 elseif redis:sismember(Spyder..'admins:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك طرد الادمن\n🛠") 
 elseif  redis:sismember(Spyder..'whitelist:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك طرد المميز\n🛠") 
+return sendMsg(arg.ChatID,arg.MsgID,"👤*¦* لا يمكنك طرد المميز\n🛠") 
 end
 Restrict(ChatID,UserID,1)
 redis:hset(Spyder..'username:'..UserID, 'username', Resolv)
 redis:sadd(Spyder..':tqeed:'..ChatID,UserID)
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n⛔️¦ تم تقييده بنجاح \n✓")
+return sendMsg(ChatID,MsgID,"📌 » العضو ❲ "..NameUser.." ❳  تم تقييد العضو\n✓")
 end 
 if cmd =="fktqeed" then
 Restrict(ChatID,UserID,2)
 redis:srem(Spyder..':tqeed:'..ChatID,UserID)
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n⛔️¦ تم فك تقييده بنجاح \n✓")
+return sendMsg(ChatID,MsgID,"📌 » العضو ❲ "..NameUser.." ❳  تم فك تقييد العضو\n✓")
 end
 if cmd == "setwhitelist" then
 if redis:sismember(Spyder..'whitelist:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم بالتأكيد رفعه مميز  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم بالتأكيد رفع  ❲ "..NameUser.." ❳  مميز في المجموعة. \n✓") 
 end
 redis:hset(Spyder..'username:'..UserID, 'username', Resolv)
 redis:sadd(Spyder..'whitelist:'..ChatID,UserID)
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم رفعه مميز  في المجموعه \n✓") 
+return SendMention(arg.ChatID,arg.UserID,arg.MsgID,"📮 » تم رفع  ❲ "..NameUser.." ❳  مميز في المجموعة . \n✓") 
 end
 if cmd == "remwhitelist" then
 if not redis:sismember(Spyder..'whitelist:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم بالتأكيد تنزيله مميز  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم بالتأكيد تنزيل  ❲ "..NameUser.." ❳  مميز في المجموعة . \n✓") 
 end
 redis:srem(Spyder..'whitelist:'..ChatID,UserID)
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم تنزيله مميز  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم تنزيل  ❲ "..NameUser.." ❳  مميز في المجموعة . \n✓") 
 end
 if cmd == "setmnsha" then
 if redis:sismember(Spyder..':MONSHA_BOT:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم بالتأكيد رفعه منشئ  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم بالتأكيد رفع  ❲ "..NameUser.." ❳  منشئ  في المجموعة . \n✓") 
 end
 redis:hset(Spyder..'username:'..UserID, 'username', Resolv)
 redis:sadd(Spyder..':MONSHA_BOT:'..ChatID,UserID)
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم رفعه منشئ  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم رفع  ❲ "..NameUser.." ❳  منشئ  في المجموعة . \n✓") 
 end
 if cmd == "remmnsha" then
 if not redis:sismember(Spyder..':MONSHA_BOT:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم بالتأكيد تنزيله منشئ  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم بالتأكيد تنزيل  ❲ "..NameUser.." ❳  منشئ  في المجموعة . \n✓") 
 end
 redis:srem(Spyder..':MONSHA_BOT:'..ChatID,UserID)
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم تنزيله منشى  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم تنزيل  ❲ "..NameUser.." ❳  منشئ  في المجموعة . \n✓") 
 end
 
 if cmd == "setowner" then
 if redis:sismember(Spyder..'owners:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم بالتأكيد رفعه مدير  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم بالتأكيد رفع  ❲ "..NameUser.." ❳  مدير في المجموعة . \n✓") 
 end
 Resolv = Resolv:gsub([[\_]],"_")
 redis:hset(Spyder..'username:'..UserID, 'username', Resolv)
 redis:sadd(Spyder..'owners:'..ChatID,UserID)
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم رفعه مدير  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم رفع  ❲ "..NameUser.." ❳  مدير في المجموعة . \n✓") 
 end
 if cmd == "remowner" then
 if not redis:sismember(Spyder..'owners:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم بالتأكيد تنزيله مدير  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم بالتأكيد تنزيل ❲ "..NameUser.." ❳ مدير في المجموعة \n✓️") 
 end
 redis:srem(Spyder..'owners:'..ChatID,UserID)
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم تنزيله مدير  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم تنزيل ❲ "..NameUser.." ❳ مدير في المجموعة \n✓️") 
 end
 if cmd == "promote" then
 if redis:sismember(Spyder..'admins:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم بالتأكيد رفعه ادمن  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم بالتأكيد رفع ❲ "..NameUser.." ❳ ادمن في المجموعة \n✓️") 
 end
 Resolv = Resolv:gsub([[\_]],"_")
 redis:hset(Spyder..'username:'..UserID, 'username', Resolv)
 redis:sadd(Spyder..'admins:'..ChatID,UserID) 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم رفعه ادمن  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم رفع ❲ "..NameUser.." ❳ ادمن في المجموعة \n✓️") 
 end
 if cmd == "demote" then
 if not redis:sismember(Spyder..'admins:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم بالتأكيد تنزيله ادمن  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم بالتأكيد تنزيل ❲ "..NameUser.." ❳ ادمن في المجموعة \n✓️") 
 end
 redis:srem(Spyder..'admins:'..ChatID,UserID)
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم تنزيله ادمن  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم تنزيل ❲ "..NameUser.." ❳ ادمن في المجموعة \n✓️") 
 end
 if cmd == "whois" then
 GetChatMember(ChatID,UserID,function(arg,data1)
@@ -1700,43 +1749,41 @@ end
 
 if cmd == "Upmonsh" then
 if redis:sismember(Spyder..':MONSHA_Group:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم بالتأكيد رفعه منشئ اساسي  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم بالتأكيد رفع ❲ "..NameUser.." ❳ منشئ اساسي في المجموعة \n✓️") 
 end
 redis:hset(Spyder..'username:'..UserID,'username',USERNAME)
 redis:sadd(Spyder..':MONSHA_Group:'..ChatID,UserID)
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم رفعه منشئ اساسي  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم رفع ❲ "..NameUser.." ❳ منشئ اساسي في المجموعة \n✓️") 
 end
 
 if cmd == "Dwmonsh" then
 if not redis:sismember(Spyder..':MONSHA_Group:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم بالتأكيد تنزيله منشئ اساسي  في المجموعه \n✓") 
+sendMsg(ChatID,MsgID,"📮 » تم بالتأكيد تنزيل ❲ "..NameUser.." ❳ منشئ اساسي في المجموعة \n✓️") 
 end
 redis:srem(Spyder..':MONSHA_Group:'..ChatID,UserID) 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم تنزيله منشئ اساسي  في المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم تنزيل ❲ "..NameUser.." ❳ منشئ اساسي في المجموعة \n✓️") 
 end
 
 if cmd == "up_sudo" then
 if redis:sismember(Spyder..':SUDO_BOT:',UserID) then 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم بالتأكيد رفعه مطور  في البوت \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم بالتأكيد رفع  ❲ "..NameUser.." ❳  مطور في البوت \n✓") 
 end
 redis:hset(Spyder..'username:'..UserID, 'username', USERNAME)
 redis:sadd(Spyder..':SUDO_BOT:',UserID)
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم رفعه مطور  في البوت \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم رفع ❲ "..NameUser.." ❳  مطور في البوت \n✓") 
 end
 
 if cmd == "dn_sudo" then
 if not redis:sismember(Spyder..':SUDO_BOT:',UserID) then 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم بالتأكيد تنزيله مطور  في البوت \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم بالتأكيد تنزيل  ❲ "..NameUser.." ❳  مطور في البوت \n✓") 
 end
 redis:srem(Spyder..':SUDO_BOT:',UserID) 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم تنزيله مطور  في البوت \n✓") 
+return sendMsg(ChatID,MsgID,"📮 » تم تنزيل ❲ "..NameUser.." ❳  مطور في البوت \n✓") 
 end
 
 if cmd == "ban" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك حظر البوت\n🛠") 
-elseif UserID == 819385837 or UserID == 60809019 then 
-return sendMsg(ChatID,MsgID,"⚜️*¦* لا يمكنك حظر مطور السورس\n🛠") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك حظر المطور الاساسي\n🛠") 
 elseif redis:sismember(Spyder..':SUDO_BOT:',UserID) then 
@@ -1750,22 +1797,20 @@ return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك حظر المدير\n🛠"
 elseif redis:sismember(Spyder..'admins:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك حظر الادمن\n🛠")
 elseif  redis:sismember(Spyder..'whitelist:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك حظر المميز\n🛠") 
+return sendMsg(arg.ChatID,arg.MsgID,"👤*¦* لا يمكنك حظر المميز\n🛠") 
 end
 if Check_Banned(ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n⛔️¦ تم بالتأكيد حظره  من المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📌 » العضو ❲ "..NameUser.." ❳  تم بالتأكيد حظره \n✓️") 
 end
 redis:hset(Spyder..'username:'..UserID, 'username', Resolv)
 redis:sadd(Spyder..'banned:'..ChatID,UserID)
 kick_user(UserID, ChatID)
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n⛔️¦ تم حظره  من المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📌 » العضو ❲ "..NameUser.." ❳ تم حظره  \n✓️") 
 end
 
 if cmd == "kick" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك طرد البوت\n🛠") 
-elseif UserID == 819385837 or UserID == 60809019 then 
-return sendMsg(ChatID,MsgID,"⚜️*¦* لا يمكنك طرد مطور السورس\n🛠") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك طرد المطور الاساسي\n🛠") 
 elseif redis:sismember(Spyder..':SUDO_BOT:',UserID) then 
@@ -1779,7 +1824,7 @@ return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك طرد المدير\n🛠"
 elseif redis:sismember(Spyder..'admins:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك طرد الادمن\n🛠") 
 elseif  redis:sismember(Spyder..'whitelist:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك طرد المميز\n🛠") 
+return sendMsg(arg.ChatID,arg.MsgID,"👤*¦* لا يمكنك طرد المميز\n🛠") 
 end
 kick_user(UserID, ChatID,function(arg,data)
 if data.ID == "Error" and data.code_ == 400 then
@@ -1788,15 +1833,15 @@ elseif data.ID == "Error" and data.code_ == 3 then
 return sendMsg(ChatID,MsgID,'📛*¦* لا يمكنني طرد العضو .\n🎟*¦* ليس لدي صلاحيه الحظر او لست مشرف\n ❕')    
 end
 StatusLeft(ChatID,UserID)
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n⛔️¦ تم طرده  من المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📌 » العضو ❲ "..NameUser.." ❳  تم طرده من المجموعة\n✓") 
 end)
 end
 
 if cmd == "uban" then
 if not Check_Banned(ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n⛔️¦ تم بالتأكيد الغاء حظره  من المجموعه \n✓") 
+sendMsg(ChatID,MsgID,"📌 » العضو ❲ "..NameUser.." ❳  تم بالتأكيد الغاء حظره من المجموعة\n✓") 
 else
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n⛔️¦ تم الغاء حظره  من المجموعه \n✓") 
+sendMsg(ChatID,MsgID,"📌 » العضو ❲ "..NameUser.." ❳  تم الغاء حظره من المجموعة\n✓") 
 end
 redis:hset(Spyder..'username:'..UserID, 'username', Resolv)
 redis:srem(Spyder..'banned:'..ChatID,UserID)
@@ -1807,8 +1852,6 @@ end
 if cmd == "ktm" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك كتم البوت\n🛠") 
-elseif UserID == 819385837 or UserID == 60809019 then 
-return sendMsg(ChatID,MsgID,"⚜️*¦* لا يمكنك كتم مطور السورس\n🛠") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك كتم المطور الاساسي\n🛠") 
 elseif redis:sismember(Spyder..':SUDO_BOT:',UserID) then 
@@ -1822,156 +1865,148 @@ return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك كتم المدير\n🛠"
 elseif redis:sismember(Spyder..'admins:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك كتم الادمن\n🛠") 
 elseif  redis:sismember(Spyder..'whitelist:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك كتم المميز\n🛠") 
+return sendMsg(arg.ChatID,arg.MsgID,"👤*¦* لا يمكنك كتم المميز\n🛠") 
 end
 if redis:sismember(Spyder..'admins:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك كتم المدراء او الادمنيه\n🛠") 
 end
 if MuteUser(ChatID, UserID) then 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n⛔️¦ تم بالتأكيد كتمه  من المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📌 » العضو ❲ "..NameUser.." ❳  تم بالتأكيد كتمه من المجموعة\n✓") 
 end
 redis:hset(Spyder..'username:'..UserID, 'username', Resolv)
 redis:sadd(Spyder..'is_silent_users:'..ChatID,UserID)
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n⛔️¦ تم كتمه  من المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📌 » العضو ❲ "..NameUser.." ❳  تم كتمه من المجموعة\n✓") 
 end
 
 if cmd == "unktm" then
 if not MuteUser(ChatID, UserID) then 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n⛔️¦ تم بالتأكيد الغاء كتمه  من المجموعه \n✓") 
+    return sendMsg(ChatID,MsgID,"📌 » العضو ❲ "..NameUser.." ❳  تم بالتأكيد الغاء كتمه من المجموعة\n✓") 
 end
 redis:hset(Spyder..'username:'..UserID, 'username', Resolv)
 redis:srem(Spyder..'is_silent_users:'..ChatID,UserID)
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n⛔️¦ تم الغاء كتمه  من المجموعه \n✓") 
+return sendMsg(ChatID,MsgID,"📌 » العضو ❲ "..NameUser.." ❳  تم الغاء كتمه من المجموعة\n✓") 
 end
 
 if cmd == "upMshrf" then
-redis:hset(Spyder..'username:'..UserID,'username',Resolv)
-redis:setex(Spyder..":uploadingsomeon:"..ChatID..msg.sender_user_id_,500,NameUser)
-redis:setex(Spyder..":uploadingsomeon2:"..ChatID..msg.sender_user_id_,500,UserID)
-sendMsg(ChatID,MsgID,"📇|  » حسننا الان ارسل صلاحيات المشرف :\n\n|1- صلاحيه تغيير المعلومات\n|2- صلاحيه حذف الرسائل\n|3- صلاحيه دعوه مستخدمين\n|4- صلاحيه حظر وتقيد المستخدمين \n|5- صلاحيه تثبيت الرسائل \n|6- صلاحيه رفع مشرفين اخرين\n\n|[*]- لرفع كل الصلاحيات ما عدا رفع المشرفين \n|[**] - لرفع كل الصلاحيات مع رفع المشرفين \n\n🚸| يمكنك اختيار الارقام معا وتعيين الكنيه للمشرف في ان واحد مثلا : \n\n| 136 الزعيم\n📬") 
-return false
+  redis:hset(Spyder..'username:'..UserID,'username',Resolv)
+  redis:setex(Spyder..":uploadingsomeon:"..ChatID..msg.sender_user_id_,500,NameUser)
+  redis:setex(Spyder..":uploadingsomeon2:"..ChatID..msg.sender_user_id_,500,UserID)
+  sendMsg(ChatID,MsgID,"📇|  » حسننا الان ارسل صلاحيات المشرف :\n\n|1- صلاحيه تغيير المعلومات\n|2- صلاحيه حذف الرسائل\n|3- صلاحيه دعوه مستخدمين\n|4- صلاحيه حظر وتقيد المستخدمين \n|5- صلاحيه تثبيت الرسائل \n|6- صلاحيه رفع مشرفين اخرين\n\n|[*]- لرفع كل الصلاحيات ما عدا رفع المشرفين \n|[**] - لرفع كل الصلاحيات مع رفع المشرفين \n\n🚸| يمكنك اختيار الارقام معا وتعيين الكنيه للمشرف في ان واحد مثلا : \n\n| 136 الزعيم\n📬") 
+  return false
 end
 
 if cmd == "DwonMshrf" then
-ResAdmin = UploadAdmin(ChatID,UserID,"")  
-if ResAdmin == '{"ok":false,"error_code":400,"description":"Bad Request: CHAT_ADMIN_REQUIRED"}' then return sendMsg(ChatID,MsgID,"👤*¦*لا يمكنني تنزيله لانه مرفوع من قبل منشئ اخر \n📛")  end
-redis:srem(Spyder..':MONSHA_BOT:'..ChatID,UserID)
+  ResAdmin = UploadAdmin(ChatID,UserID,"")  
+  if ResAdmin == '{"ok":false,"error_code":400,"description":"Bad Request: CHAT_ADMIN_REQUIRED"}' then return sendMsg(ChatID,MsgID,"👤*¦*لا يمكنني تنزيله لانه مرفوع من قبل منشئ اخر \n📛")  end
+  redis:srem(Spyder..':MONSHA_BOT:'..ChatID,UserID)
 redis:srem(Spyder..'owners:'..ChatID,UserID)
 redis:srem(Spyder..'admins:'..ChatID,UserID)
 redis:srem(Spyder..'whitelist:'..ChatID,UserID)
-sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n📋¦ تم تنزيله من مشرفين المجموعه \n✓")
-return false
+  sendMsg(ChatID,MsgID,"📌 » العضو ❲ "..NameUser.." ❳ تم تنزيله من المشرفين من المجموعه\n✓")
+  return false
 end
 
 if cmd == "bandall" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك حظر البوت\n🛠") 
-elseif UserID == 819385837 or UserID == 60809019 then 
-return sendMsg(ChatID,MsgID,"⚜️*¦* لا يمكنك حظر مطور السورس\n🛠") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك حظر المطور الاساسي\n🛠")
 elseif redis:sismember(Spyder..':SUDO_BOT:',UserID) then 
 return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك حظر المطور\n🛠") 
 end
 if GeneralBanned(UserID) then 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n⛔️¦ تم بالتأكيد حظره عام  من المجموعات \n✓") 
+    return sendMsg(ChatID,MsgID,"📌 » العضو ❲ "..NameUser.." ❳  تم بالتأكيد حظرة عام من المجموعة\n✓") 
 end
 redis:hset(Spyder..'username:'..UserID, 'username', Resolv)
 redis:sadd(Spyder..'gban_users',UserID)
 kick_user(UserID,ChatID) 
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n⛔️¦ تم حظره عام  من المجموعات \n✓") 
+return sendMsg(ChatID,MsgID,"📌 » العضو ❲ "..NameUser.." ❳  تم حظرة عام من المجموعة\n✓") 
 end
 
 if cmd == "unbandall" then  
 if not GeneralBanned(UserID) then
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n⛔️¦ تم بالتأكيد الغاء حظره العام  من المجموعات \n✓") 
+return sendMsg(ChatID,MsgID,"📌 » العضو ❲ "..NameUser.." ❳  تم بالتأكيد الغاء حظرة عام من المجموعة\n✓") 
 end
 redis:srem(Spyder..'gban_users',UserID)
 StatusLeft(ChatID,UserID)
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n⛔️¦ تم الغاء حظره العام  من المجموعات \n✓") 
+return sendMsg(ChatID,MsgID,"📌 » العضو ❲ "..NameUser.." ❳  تم الغاء حظرة عام من المجموعة\n✓") 
 end
 
 if cmd == "tfa3l" then  
-local maseegs = redis:get(Spyder..'msgs:'..UserID..':'..ChatID) or 1
-local edited = redis:get(Spyder..':edited:'..ChatID..':'..UserID) or 0
-local content = redis:get(Spyder..':adduser:'..ChatID..':'..UserID) or 0
-if data.username_ then UserNameID = "@"..data.username_ else UserNameID = "لا يوجد" end  
-
-sendMsg(ChatID,MsgID,"🎫┇ايديه » `"..UserID.."`\n📨┇رسائله » "..maseegs.."\n🎟┇معرفه » ["..UserNameID.."]\n📈┇تفاعله » "..Get_Ttl(maseegs).."\n📮┇رتبته » "..Getrtba(UserID,ChatID).."\n⚡️┇تعديلاته » "..edited.."\n☎️┇جهاته » "..content.."") 
+  local maseegs = redis:get(Spyder..'msgs:'..UserID..':'..ChatID) or 1
+  local edited = redis:get(Spyder..':edited:'..ChatID..':'..UserID) or 0
+  local content = redis:get(Spyder..':adduser:'..ChatID..':'..UserID) or 0
+  sendMsg(ChatID,MsgID,"🎫┇ايديه » `"..UserID.."`\n📨┇رسائله » "..maseegs.."\n🎟┇معرفه » ["..USERNAME.."]\n📈┇تفاعله » "..Get_Ttl(maseegs).."\n📮┇رتبته » "..Getrtba(UserID,ChatID).."\n⚡️┇تعديلاته » "..edited.."\n☎️┇جهاته » "..content.."") 
 end
 
 if cmd == "rfaqud" then  
-if UserID == our_id then return sendMsg(ChatID,MsgID,"👤*¦* لا يمكنك تنفيذ الامر بالرد ع رسالة البوت \n📛") end
-Restrict(ChatID,UserID,2)
-redis:srem(Spyder..'banned:'..ChatID,UserID)
-StatusLeft(ChatID,UserID)
-redis:srem(Spyder..'is_silent_users:'..ChatID,UserID)
-return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n  تم رفع القيود ان وجد\n✓") 
+  Restrict(ChatID,UserID,2)
+  redis:srem(Spyder..'banned:'..ChatID,UserID)
+  StatusLeft(ChatID,UserID)
+  redis:srem(Spyder..'is_silent_users:'..ChatID,UserID)
+ return sendMsg(ChatID,MsgID,"📌 » العضو ❲ "..NameUser.." ❳  تم رفع القيود ان وجد\n✓") 
 end
 
 --========================================================================
 if cmd == "DwnAll" then ----------- تنزيل الكل
-print(UserID..":"..SUDO_ID)
-if UserID == our_id then return sendMsg(ChatID,MsgID,"📛*¦* لآ يمكنك تنفيذ الامر مع البوت\n❕") end
-if UserID == 819385837 or UserID == 60809019 then return sendMsg(ChatID,MsgID,"📛*¦* لآ يمكنك تنفيذ الامر ضد مطور السورس \n❕") end
-
-if UserID == SUDO_ID then 
-rinkuser = 1
-elseif redis:sismember(Spyder..':SUDO_BOT:',UserID) then 
-rinkuser = 2
-elseif redis:sismember(Spyder..':MONSHA_Group:'..ChatID,UserID) then 
-rinkuser = 3
-elseif redis:sismember(Spyder..':MONSHA_BOT:'..ChatID,UserID) then 
-rinkuser = 4
-elseif redis:sismember(Spyder..'owners:'..ChatID,UserID) then 
-rinkuser = 5
-elseif redis:sismember(Spyder..'admins:'..ChatID,UserID) then 
-rinkuser = 6
-elseif redis:sismember(Spyder..'whitelist:'..ChatID,UserID) then 
-rinkuser = 7
-else
-rinkuser = 8
-end
-local DonisDown = "\n📛¦ تم تنزيله من الرتب الاتيه : \n\n "
-if redis:sismember(Spyder..':SUDO_BOT:',UserID) then 
-DonisDown = DonisDown.."❌¦  تم تنزيله من المطور ✓️\n"
-end 
-if redis:sismember(Spyder..':MONSHA_Group:'..ChatID,UserID) then 
-DonisDown = DonisDown.."❌¦  تم تنزيله من المنشئ الاساسي ✓️\n"
-end 
-if redis:sismember(Spyder..':MONSHA_BOT:'..ChatID,UserID) then 
-DonisDown = DonisDown.."❌¦  تم تنزيله من المنشئ ✓️\n"
-end 
-if redis:sismember(Spyder..'owners:'..ChatID,UserID) then 
-DonisDown = DonisDown.."❌¦  تم تنزيله من المدير ✓️\n"
-end 
-if redis:sismember(Spyder..'admins:'..ChatID,UserID) then 
-DonisDown = DonisDown.."❌¦  تم تنزيله من الادمن ✓️\n"
-end 
-if redis:sismember(Spyder..'whitelist:'..ChatID,UserID) then
-DonisDown = DonisDown.."❌¦  تم تنزيله من العضو مميز ✓️\n"
-end
+  print(UserID..":"..SUDO_ID)
+  if UserID == SUDO_ID then 
+  rinkuser = 1
+  elseif redis:sismember(Spyder..':SUDO_BOT:',UserID) then 
+  rinkuser = 2
+  elseif redis:sismember(Spyder..':MONSHA_Group:'..ChatID,UserID) then 
+  rinkuser = 3
+  elseif redis:sismember(Spyder..':MONSHA_BOT:'..ChatID,UserID) then 
+  rinkuser = 4
+  elseif redis:sismember(Spyder..'owners:'..ChatID,UserID) then 
+  rinkuser = 5
+  elseif redis:sismember(Spyder..'admins:'..ChatID,UserID) then 
+  rinkuser = 6
+  elseif redis:sismember(Spyder..'whitelist:'..ChatID,UserID) then 
+  rinkuser = 7
+  else
+  rinkuser = 8
+  end
+  local DonisDown = "\n📛| تم تنزيله من الرتب الاتيه : \n\n "
+  if redis:sismember(Spyder..':SUDO_BOT:',UserID) then 
+   DonisDown = DonisDown.."⭕️| تم تنزيله من المطور ✓️\n"
+  end 
+  if redis:sismember(Spyder..':MONSHA_Group:'..ChatID,UserID) then 
+   DonisDown = DonisDown.."⭕️| تم تنزيله من المنشئ الاساسي ✓️\n"
+ end 
+ if redis:sismember(Spyder..':MONSHA_BOT:'..ChatID,UserID) then 
+   DonisDown = DonisDown.."⭕️| تم تنزيله من المنشئ ✓️\n"
+ end 
+ if redis:sismember(Spyder..'owners:'..ChatID,UserID) then 
+   DonisDown = DonisDown.."⭕️| تم تنزيله من المدير ✓️\n"
+ end 
+ if redis:sismember(Spyder..'admins:'..ChatID,UserID) then 
+   DonisDown = DonisDown.."⭕️| تم تنزيله من الادمن ✓️\n"
+ end 
+ if redis:sismember(Spyder..'whitelist:'..ChatID,UserID) then
+   DonisDown = DonisDown.."⭕️| تم تنزيله من العضو مميز ✓️\n"
+ end
 
 function senddwon()  sendMsg(ChatID,MsgID,"📛*¦* عذرا المستخدم رتبته اعلى منك لا يمكن تنزيله \n❕") end
 function sendpluse() sendMsg(ChatID,MsgID,"📛*¦* عذرا لا يمكن تنزيل رتبه مثل رتبتك : "..msg.TheRankCmd.." \n❕") end
 
-if rinkuser == 8 then return sendMsg(ChatID,MsgID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」   \nانه بالتأكيد عضو \n✓️")  end
+if rinkuser == 8 then return sendMsg(ChatID,MsgID,"👲🏼 » ❲ "..NameUser.." ❳  انه اساسا عضو \n✓️")  end
 huk = false
 if msg.SudoBase then 
-redis:srem(Spyder..':SUDO_BOT:',UserID)
-redis:srem(Spyder..':MONSHA_Group:'..ChatID,UserID)
-redis:srem(Spyder..':MONSHA_BOT:'..ChatID,UserID)
-redis:srem(Spyder..'owners:'..ChatID,UserID)
-redis:srem(Spyder..'admins:'..ChatID,UserID)
-redis:srem(Spyder..'whitelist:'..ChatID,UserID)
+  redis:srem(Spyder..':SUDO_BOT:',UserID)
+  redis:srem(Spyder..':MONSHA_Group:'..ChatID,UserID)
+  redis:srem(Spyder..':MONSHA_BOT:'..ChatID,UserID)
+  redis:srem(Spyder..'owners:'..ChatID,UserID)
+  redis:srem(Spyder..'admins:'..ChatID,UserID)
+  redis:srem(Spyder..'whitelist:'..ChatID,UserID)
 elseif msg.SudoUser then 
-if rinkuser == 2 then return sendpluse() end
-if rinkuser < 2 then return senddwon() end
-redis:srem(Spyder..':MONSHA_Group:'..ChatID,UserID)
-redis:srem(Spyder..':MONSHA_BOT:'..ChatID,UserID)
-redis:srem(Spyder..'owners:'..ChatID,UserID)
-redis:srem(Spyder..'admins:'..ChatID,UserID)
-redis:srem(Spyder..'whitelist:'..ChatID,UserID)
+  if rinkuser == 2 then return sendpluse() end
+  if rinkuser < 2 then return senddwon() end
+  redis:srem(Spyder..':MONSHA_Group:'..ChatID,UserID)
+  redis:srem(Spyder..':MONSHA_BOT:'..ChatID,UserID)
+  redis:srem(Spyder..'owners:'..ChatID,UserID)
+  redis:srem(Spyder..'admins:'..ChatID,UserID)
+  redis:srem(Spyder..'whitelist:'..ChatID,UserID)
 elseif msg.SuperCreator then 
 if rinkuser == 3 then return sendpluse() end
 if rinkuser < 3 then return senddwon() end
@@ -1980,26 +2015,26 @@ redis:srem(Spyder..'owners:'..ChatID,UserID)
 redis:srem(Spyder..'admins:'..ChatID,UserID)
 redis:srem(Spyder..'whitelist:'..ChatID,UserID)
 elseif msg.Creator then 
-if rinkuser == 4 then return sendpluse() end
-if rinkuser < 5 then return senddwon() end
-redis:srem(Spyder..'owners:'..ChatID,UserID)
-redis:srem(Spyder..'admins:'..ChatID,UserID)
-redis:srem(Spyder..'whitelist:'..ChatID,UserID)
+  if rinkuser == 4 then return sendpluse() end
+  if rinkuser < 5 then return senddwon() end
+  redis:srem(Spyder..'owners:'..ChatID,UserID)
+  redis:srem(Spyder..'admins:'..ChatID,UserID)
+  redis:srem(Spyder..'whitelist:'..ChatID,UserID)
 elseif msg.Director then 
-if rinkuser == 5 then return sendpluse() end
-if rinkuser < 5 then return senddwon() end
-redis:srem(Spyder..'admins:'..ChatID,UserID)
-redis:srem(Spyder..'whitelist:'..ChatID,UserID)
+  if rinkuser == 5 then return sendpluse() end
+  if rinkuser < 5 then return senddwon() end
+  redis:srem(Spyder..'admins:'..ChatID,UserID)
+  redis:srem(Spyder..'whitelist:'..ChatID,UserID)
 elseif msg.Admin then 
-if rinkuser == 6 then return sendpluse() end
-if rinkuser < 6 then return senddwon() end
-redis:srem(Spyder..'admins:'..ChatID,UserID)
-redis:srem(Spyder..'whitelist:'..ChatID,UserID)
+  if rinkuser == 6 then return sendpluse() end
+  if rinkuser < 6 then return senddwon() end
+  redis:srem(Spyder..'admins:'..ChatID,UserID)
+  redis:srem(Spyder..'whitelist:'..ChatID,UserID)
 else
-huk = true
+  huk = true
 end
 
-if not huk then sendMsg(ChatID,UserID,"📮¦ المستخدم  ⋙「 "..NameUser.." 」 \n"..DonisDown.."\n✓️") end
+    if not huk then sendMsg(ChatID,UserID,"👲🏼 » العضو ❲ "..NameUser.." ❳ \n"..DonisDown.."\n✓️") end
 
 end
 
@@ -2019,7 +2054,6 @@ list_settings = "*👮🏾¦*` اعدادات المجموعه :` \n"
 .."\n🏌🏻¦ البوتات بالطرد » "..(redis:get(Spyder..'lock_bots_by_kick'..msg.chat_id_) or 'false')
 .."\n🤖¦ البوتات » "..(redis:get(Spyder..'lock_bots'..msg.chat_id_) or 'false')
 .."\n➕¦ عدد التكرار » "..(redis:get(Spyder..'num_msg_max'..msg.chat_id_) or 'false')
-.."\n⏰¦ وقت التنظيف » "..(redis:get(Spyder..':Timer_Cleaner:'..msg.chat_id_) or '6').." ساعة ."
 .."\n\n🎬¦` اعدادات الوسائط :`\n"
 .."\n🤹*¦* المتحركه » "..(redis:get(Spyder..'mute_gif'..msg.chat_id_) or 'false')
 .."\n💭¦ الدردشه » "..(redis:get(Spyder..'mute_text'..msg.chat_id_) or 'false')
@@ -2027,8 +2061,8 @@ list_settings = "*👮🏾¦*` اعدادات المجموعه :` \n"
 .."\n🎮¦ الالعاب » "..(redis:get(Spyder..'mute_game'..msg.chat_id_) or 'false')
 .."\n🏞¦ الصور » "..(redis:get(Spyder..'mute_photo'..msg.chat_id_) or 'false')
 .."\n🎥¦ الفيديو » "..(redis:get(Spyder..'mute_video'..msg.chat_id_) or 'false')
-.."\n🎙¦ الصوت » "..(redis:get(Spyder..'mute_audio'..msg.chat_id_) or 'false')
-.."\n\n🔉¦ البصمات » "..(redis:get(Spyder..'mute_voice'..msg.chat_id_) or 'false')
+.."\n🎙¦ البصمات » "..(redis:get(Spyder..'mute_audio'..msg.chat_id_) or 'false')
+.."\n\n🔉¦ الصوت » "..(redis:get(Spyder..'mute_voice'..msg.chat_id_) or 'false')
 .."\n🎎¦ الملصقات » "..(redis:get(Spyder..'mute_sticker'..msg.chat_id_) or 'false')
 .."\n📞¦ الجهات » "..(redis:get(Spyder..'mute_contact'..msg.chat_id_) or 'false')
 .."\n💱¦ التوجيه » "..(redis:get(Spyder..'mute_forward'..msg.chat_id_) or 'false')
@@ -2038,22 +2072,20 @@ list_settings = "*👮🏾¦*` اعدادات المجموعه :` \n"
 .."\n🔒¦ الفشار » "..(redis:get(Spyder..'lock_mmno3'..msg.chat_id_) or 'false')
 .."\n🔒¦ الفارسيه » "..(redis:get(Spyder..'lock_pharsi'..msg.chat_id_) or 'false')
 .."\n🔒¦ الانكليزيه » "..(redis:get(Spyder..'lock_lang'..msg.chat_id_) or 'false')
-.."\n🔒¦ الاضافه » "..(redis:get(Spyder..'lock_Add'..msg.chat_id_) or 'false')
+.."\n🔒¦ الاضافه » "..(redis:get(Spyder..'lock_join'..msg.chat_id_) or 'false')
 
 local eueuf = "\n\n*⚒¦*` اعدادات اخرى : `"
 .."\n*🙋🏼‍♂️¦* الترحيب » "..(redis:get(Spyder..'welcome:get'..msg.chat_id_) or 'false')
-.."\n*📋¦*  الردود » "..(redis:get(Spyder..'replay'..msg.chat_id_) or 'false')
+.."\n*💬¦*  الردود » "..(redis:get(Spyder..'replay'..msg.chat_id_) or 'false')
 .."\n*🚸¦*  التحذير » "..(redis:get(Spyder..'lock_woring'..msg.chat_id_) or 'false')
-.."\n*📝¦* الايدي » "..(redis:get(Spyder..'lock_id'..msg.chat_id_) or 'false')
-.."\n*💬¦* الرابط » "..(redis:get(Spyder..'lock_linkk'..msg.chat_id_) or 'false')
-.."\n*📮¦* المغادره » "..(redis:get(Spyder..'lock_leftgroup'..msg.chat_id_) or 'false')
-.."\n*🗳¦* الحظر » "..(redis:get(Spyder..'lock_KickBan'..msg.chat_id_) or 'false')
-.."\n*🔍¦* الحمايه » "..(redis:get(Spyder..'antiedit'..msg.chat_id_) or 'false')
-.."\n*📋¦* التاك للكل » "..(redis:get(Spyder..'lock_takkl'..msg.chat_id_) or 'false')
-.."\n*📒¦* الايدي بالصوره » "..(redis:get(Spyder..'idphoto'..msg.chat_id_) or 'false')
-.."\n*🔐¦* التحقق » "..(redis:get(Spyder.."lock_check"..msg.chat_id_) or 'false')
-.."\n*🗑¦* التنظيف التلقائي » "..(redis:get(Spyder.."lock_cleaner"..msg.chat_id_) or 'false')
-.."\n*📂¦* ردود السورس » "..(redis:get(Spyder.."lock_rdodSource"..msg.chat_id_) or 'false')
+.."\n*🎫¦* الايدي » "..(redis:get(Spyder..'lock_id'..msg.chat_id_) or 'false')
+.."\n*🎫¦* الرابط » "..(redis:get(Spyder..'lock_linkk'..msg.chat_id_) or 'false')
+.."\n*🎫¦* المغادره » "..(redis:get(Spyder..'lock_leftgroup'..msg.chat_id_) or 'false')
+.."\n*🎫¦* الحظر » "..(redis:get(Spyder..'lock_KickBan'..msg.chat_id_) or 'false')
+.."\n*🎫¦* الحمايه » "..(redis:get(Spyder..'antiedit'..msg.chat_id_) or 'false')
+.."\n*🎫¦* التاك للكل » "..(redis:get(Spyder..'lock_takkl'..msg.chat_id_) or 'false')
+.."\n*🎫¦* الايدي بالصوره » "..(redis:get(Spyder..'idphoto'..msg.chat_id_) or 'false')
+.."\n*🎫¦* التحقق » "..(redis:get(Spyder.."lock_check"..msg.chat_id_) or 'false')
 list_settings = list_settings:gsub('true', '{ مقفول }')
 list_settings = list_settings:gsub('false', '{ مفتوح }')
 eueuf = eueuf:gsub('true', '{ مفعل }')
@@ -2093,8 +2125,8 @@ list_settings = "*👮🏾¦*` اعدادات الوسائط:`\n"
 .."\n*🎮¦* الالعاب » "..(redis:get(Spyder..'mute_game'..msg.chat_id_) or 'false')
 .."\n*🏞¦* الصور » "..(redis:get(Spyder..'mute_photo'..msg.chat_id_) or 'false')
 .."\n*🎥¦* الفيديو » "..(redis:get(Spyder..'mute_video'..msg.chat_id_) or 'false')
-.."\n*🎙¦* الصوت » "..(redis:get(Spyder..'mute_audio'..msg.chat_id_) or 'false')
-.."\n\n*🔉¦* البصمات » "..(redis:get(Spyder..'mute_voice'..msg.chat_id_) or 'false')
+.."\n*🎙¦* البصمات » "..(redis:get(Spyder..'mute_audio'..msg.chat_id_) or 'false')
+.."\n\n*🔉¦* الصوت » "..(redis:get(Spyder..'mute_voice'..msg.chat_id_) or 'false')
 .."\n*🎎¦* الملصقات » "..(redis:get(Spyder..'mute_sticker'..msg.chat_id_) or 'false')
 .."\n*📞¦* الجهات » "..(redis:get(Spyder..'mute_contact'..msg.chat_id_) or 'false')
 .."\n*💱¦* التوجيه » "..(redis:get(Spyder..'mute_forward'..msg.chat_id_) or 'false')
