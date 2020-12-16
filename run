@@ -4,13 +4,13 @@
 #      ███    ███ ███    ███   ███    ███   ███    ███
 #      ███    ███ ███    ███   ███    █▀    ███    █▀
 #     ▄███▄▄▄██▀  ███    ███   ███          ███
-#    ▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @SpyderTele
-#      ███    ██▄ ███    ███          ███          ███ ¦ Dev : @OMMMM
+#    ▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @TH3Spyder
+#      ███    ██▄ ███    ███          ███          ███ ¦ Dev : @BLCON
 #      ███    ███ ███    ███    ▄█    ███    ▄█    ███
-#    ▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ Source SpyderTele BY @TH3BS
-
+#    ▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ Source TH3Spyder BY @SPYDERTELE
 #---------------------------------------------------------------------
 cd $(cd $(dirname $0); pwd)
+ 
 RED='\033[0;31m'
 SMAY='\033[0;36m' 
 GREEN='\033[0;32m'
@@ -27,14 +27,14 @@ echo -e "${GREEN}
    ███    ███ ███    ███   ███    ███   ███    ███
    ███    ███ ███    ███   ███    █▀    ███    █▀
   ▄███▄▄▄██▀  ███    ███   ███          ███
- ▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @SpyderTele
-   ███    ██▄ ███    ███          ███          ███ ¦ Dev : @OMMMM
-   ███    ███ ███    ███    ▄█    ███    ▄█    ███ ¦ Source SpyderTele
- ▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ BY @TH3BS
+ ▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @TH3Spyder
+   ███    ██▄ ███    ███          ███          ███ ¦ Dev : @BLCON
+   ███    ███ ███    ███    ▄█    ███    ▄█    ███ ¦ Source TH3Spyder
+ ▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ BY @SPYDERTELE
  ---------------------------------------------------------------------${CNIL}"
 echo -e "${RED}| للاسف لايمكنك تنصيب السورس ع نظام اوبنتو {${Version}} يجب ان يكون على اصدار  اقل مثلا  ${SMAY}14 او 16
 ${CNIL}";
-echo -e "${RED}| Sorry Canot install Source on Ubuntu {${Version}} Please install system To Ubuntu ${SMAY}14 or 16 ${RED} For Run The Source SpyderTele 
+echo -e "${RED}| Sorry Canot install Source on Ubuntu {${Version}} Please install system To Ubuntu ${SMAY}14 or 16 ${RED} For Run The Source Th3Spyder 
 ${CNIL}";
 exit;
 fi
@@ -44,7 +44,7 @@ if [ ! -f "./TG" ]; then
 echo -e "${RED}
 ¦
 ¦ CAUTION:${WHITB} Your Not Dwonload TG .
-¦ NOW I Run File ${Yellow}./run${WHITB} To install ${SMAY}Source SpyderTele${CNIL} . \n
+¦ NOW I Run File ${Yellow}./run${WHITB} To install ${SMAY}Source TH3Spyder${CNIL} . \n
 \n\n"
 chmod +x ./ins
 ./ins
@@ -72,14 +72,23 @@ fi
 
 
 chmod +x ./TG  
-
+Loops=0
 if [ "$1" == "R" ]; then
-while true; do
+while [[ $Loops -le 5 ]]; do
 sleep 1s
 sudo rm -fr ~/.telegram-cli
 ./TG -s ./inc/Run.lua --bot=$TOKEN
+let Plas=Loops+1
+redis-cli SETEX $TOKEN 3 $Plas
+Loops=`redis-cli GET ${TOKEN}`
+echo $Loops
+if [[ $Loops == 5 ]]; then
+curl "https://api.telegram.org/bot${TOKEN}/sendmessage" -F "chat_id=${Sudo}" -F "text=THESOURCE-Reloaded-${COUNTER}-times" &>/dev/null
+screen -X -S Spyder quit
+fi
 done
 else 
+if [[ $Loops == 0 ]]; then
 if ! screen -list | grep -q "Spyder"; then
 screen -S Spyder ./run R
 else
@@ -87,3 +96,5 @@ screen -X -S Spyder quit
 screen -S Spyder ./run R
 fi
 fi
+fi
+
