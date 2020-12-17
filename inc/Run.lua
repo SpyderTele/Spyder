@@ -10,12 +10,6 @@
 ⌔︙- Done Installations Source Spyder 
 ⌔︙- Thanks For your use Source Spyder
 ══════════════════════════════
-┏━━╮╭━━━╮┏━━╮╭━━━╮
-┗━╮┃┃╭━╮┃┗━╮┃┃╭━╮┃
-╭━╯┃┃┃┈┃┃╭━╯┃┃┃┈┃┃
-┃╭━╯┃┃┈┃┃┃╭━╯┃┃┈┃┃
-┃┗━┓┃╰━╯┃┃┗━┓┃╰━╯┃
-┗━━┛╰━━━╯┗━━┛╰━━━╯
 ]]
 local function download(file_id, dl_cb, cmd)
   tdcli_function ({
