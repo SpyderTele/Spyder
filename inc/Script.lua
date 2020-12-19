@@ -2563,7 +2563,12 @@ end
 sendMsg(msg.chat_id_,msg.id_,t)
 end
 
+if msg.SudoBase then
 
+if MsgText[1] == "نقل ملكيه البوت" or MsgText[1] == "نقل ملكيه البوت 📇" then
+redis:setex(Spyder..":Witting_MoveBot:"..msg.chat_id_..msg.sender_user_id_,300,true)
+return "📭¦ حسننا عزيزي  ✋🏿\n🗯¦ الان ارسل معرف المستخدم لنقل ملكية البوت له ."
+end
 
 
 if Black == 'welcome on' or Black == 'تفعيل الترحيب' then
@@ -2656,6 +2661,7 @@ if msg.SudoBase then
 local text = '🙋🏻‍♂╿ئمنور حبي ♥\n🔻 |  آنت آلمـطـور آلآسـآسـي هنآ 🛠\n┄─┅═ـ═┅─┄\n\n🚸  |  تسـتطـيع‌‏ آلتحگم بكل آلآوآمـر آلمـمـوجودهہ‌‏ بآلگيبورد الخاص بالبوت\n🔺╽فقط آضـغط ع آلآمـر آلذي تريد تنفيذهہ‌‏'
 local keyboard = {
 {"ضع اسم للبوت ©","ضع صوره للترحيب 🌄"},
+ {"نقل ملكيه البوت 📇"},
  {"تعطيل التواصل ✖️","تفعيل التواصل 🔛"},
 {"تعطيل البوت خدمي","تفعيل البوت خدمي","المطورين 🔥"},
  {"المشتركين Ⓜ","المجموعات 🌋","الاحصائيات 💥"},
@@ -2960,6 +2966,33 @@ sendMsg(msg.chat_id_,msg.id_,"📑╿عذرا , عزيزي المطور \n🔖�
 return false
 end
 end
+
+if msg.SudoBase and redis:get(Spyder..":Witting_MoveBot:"..msg.chat_id_..msg.sender_user_id_) then
+if msg.text:match("^@[%a%d_]+$") then
+GetUserName(msg.text,function(arg,data)
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"📛*¦* لآ يوجد عضـو بهہ‌‏ذآ آلمـعرف \n❕") end 
+if data.type_.user_ and data.type_.user_.type_.ID == "UserTypeBot" then return sendMsg(arg.ChatID,arg.MsgID,"📛*¦* لا يمكنني رفع حساب بوت \n❕") end 
+local UserID = data.id_
+if UserID == our_id then 
+return sendMsg(arg.ChatID,arg.MsgID,"👤*¦* عذرا لا يمكنني رفع البوت \n📛") 
+elseif data.type_.ID == "ChannelChatInfo" then 
+return sendMsg(arg.ChatID,arg.MsgID,"👤*¦* عذرا هذا معرف قناة وليس حساب \n📛") 
+end
+redis:set(Spyder..":SUDO_ID:",UserID)
+local usero = arg.USERNAME:gsub([[\_]],"_")
+redis:hset(Spyder..'username:'..UserID,'username',usero)
+sendMsg(msg.chat_id_,msg.id_,"🔖¦ تمت العملية بنجاح وتم تحويل ملكية البوت \n📮¦ الى الحساب الاتي : ["..arg.USERNAME:gsub([[\_]],"_").."]")
+dofile("./inc/Run.lua")
+print("Update Source And Reload ~ ./inc/Run.lua And change username sudo")
+end,{ChatID=msg.chat_id_,MsgID=msg.id_,USERNAME=msg.text})
+
+else
+sendMsg(msg.chat_id_,msg.id_,"📑¦ عذرا , هناك خطأ لديك \n🔖¦ هذا ليس معرف مستخدم ولا يحتوي على @  .")
+end
+redis:del(Spyder..":Witting_MoveBot:"..msg.chat_id_..msg.sender_user_id_)
+return false 
+end
+
 
 if redis:get(Spyder..'namebot:witting'..msg.sender_user_id_) then --- استقبال اسم البوت 
 redis:del(Spyder..'namebot:witting'..msg.sender_user_id_)
