@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+cd $HOME/Spyder
+while(true) do
+rm -fr ../.telegram-cli
+screen -S Spyder -X kill
+screen -S Spyder ./Spyder
+done
