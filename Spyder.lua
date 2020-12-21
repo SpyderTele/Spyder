@@ -46,22 +46,22 @@ end
 function dl_cb(t,s)
 end
 function DevSpyder(msg)  
-local AhMeD_Sudo = false  
+local taha_Sudo = false  
 for k,v in pairs(List_Sudos) do  
 if msg.sender_user_id_ == v then  
-AhMeD_Sudo = true  
+taha_Sudo = true  
 end  
 end  
-return AhMeD_Sudo  
+return taha_Sudo  
 end 
 function DevSpydere(user)  
-local AhMeD_Sudo = false  
+local taha_Sudo = false  
 for k,v in pairs(List_Sudos) do  
 if user == v then  
-AhMeD_Sudo = true  
+taha_Sudo = true  
 end  
 end  
-return AhMeD_Sudo  
+return taha_Sudo  
 end 
 function DevBot(msg) 
 local hash = database:sismember(bot_id.."Spyder:Sudo:User", msg.sender_user_id_) 
@@ -5210,10 +5210,10 @@ send(msg.chat_id_, msg.id_,'⍥︙عـليك الاشـتࢪاك في قنـاة
 end
 return false
 end
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 200},function(ta,AhMeD)
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 200},function(ta,taha)
 local t = "\n⍥︙ قائمة الاعضاء \n━━━━━━━━━━━━━\n"
 x = 0
-local list = AhMeD.members_
+local list = taha.members_
 for k, v in pairs(list) do
 x = x + 1
 if database:get(bot_id.."Spyder:User:Name"..v.user_id_) then
@@ -5279,12 +5279,12 @@ return false
 end 
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub("-100","")},function(arg,data) 
-local AhMeD = "⍥︙ عدد الادمنيه : "..data.administrator_count_..
+local taha = "⍥︙ عدد الادمنيه : "..data.administrator_count_..
 "\n\n⍥︙ عدد المطرودين : "..data.kicked_count_..
 "\n\n⍥︙ عدد الاعضاء : "..data.member_count_..
 "\n\n⍥︙ عدد رسائل الكروب : "..(msg.id_/2097152/0.5)..
 "\n\n📯┆ اسم المجموعه : ["..ta.title_.."]"
-send(msg.chat_id_, msg.id_, AhMeD) 
+send(msg.chat_id_, msg.id_, taha) 
 end,nil)
 end,nil)
 end 
@@ -6178,7 +6178,7 @@ end
 if text == 'ايدي' and tonumber(msg.reply_to_message_id_) == 0 and not database:get(bot_id..'Spyder:Lock:ID:Bot'..msg.chat_id_) then
 if not database:sismember(bot_id..'Spyder:Spam:Group'..msg.sender_user_id_,text) then
 database:sadd(bot_id.."Spyder:Spam:Group"..msg.sender_user_id_,text) 
-tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,AhMeD,success) 
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 if data.username_ then
 UserName_User = '@'..data.username_
@@ -6192,7 +6192,7 @@ local Status_Gps = Get_Rank(Id,msg.chat_id_)
 local message_edit = database:get(bot_id..'Spyder:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
 local Num_Games = database:get(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_) or 0
 local Add_Mem = database:get(bot_id.."Spyder:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
-local Total_Photp = (AhMeD.total_count_ or 0)
+local Total_Photp = (taha.total_count_ or 0)
 local Texting = {
 'صورتك فدشي 😘😔❤️',
 "صارلك شكد مخليه ",
@@ -6204,7 +6204,7 @@ local Texting = {
 local Description = Texting[math.random(#Texting)]
 local get_id = database:get(bot_id.."Spyder:Klesh:Id:Bot"..msg.chat_id_)
 if not database:get(bot_id..'Spyder:Lock:ID:Bot:Photo'..msg.chat_id_) then
-if AhMeD.photos_[0] then
+if taha.photos_[0] then
 if get_id then
 local get_id = get_id:gsub('#AddMem',Add_Mem) 
 local get_id = get_id:gsub('#id',Id) 
@@ -6216,9 +6216,9 @@ local get_id = get_id:gsub('#auto',TotalMsg)
 local get_id = get_id:gsub('#Description',Description) 
 local get_id = get_id:gsub('#game',Num_Games) 
 local get_id = get_id:gsub('#photos',Total_Photp) 
-sendPhoto(msg.chat_id_,msg.id_,AhMeD.photos_[0].sizes_[1].photo_.persistent_id_,get_id)
+sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,get_id)
 else
-sendPhoto(msg.chat_id_,msg.id_,AhMeD.photos_[0].sizes_[1].photo_.persistent_id_,'𓌹 ⚚ '..Description..'\n𓌹 ⚚ 𝗂𝖽 ま » '..Id..'\n𓌹 ⚚ 𝗎𝗌𝖾𝗋 ま  '..UserName_User..'\n𓌹 ⚚ 𝗌𝗍𝖺𝗌 ま  '..Status_Gps..'\n𓌹 ⚚ 𝗆𝖺𝗌𝗀 ま '..NumMsg..'\n𓌹 ⚚ 𝖾𝖽𝗂𝗍  ま '..message_edit..' \n𓌹 ⚚ 𝖺𝗎𝗍𝗈 ま '..TotalMsg..'\n𓌹 ⚚  𝗆𝖺𝗌𝗀 ま '..Num_Games)
+sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,'𓌹 ⚚ '..Description..'\n𓌹 ⚚ 𝗂𝖽 ま » '..Id..'\n𓌹 ⚚ 𝗎𝗌𝖾𝗋 ま  '..UserName_User..'\n𓌹 ⚚ 𝗌𝗍𝖺𝗌 ま  '..Status_Gps..'\n𓌹 ⚚ 𝗆𝖺𝗌𝗀 ま '..NumMsg..'\n𓌹 ⚚ 𝖾𝖽𝗂𝗍  ま '..message_edit..' \n𓌹 ⚚ 𝖺𝗎𝗍𝗈 ま '..TotalMsg..'\n𓌹 ⚚  𝗆𝖺𝗌𝗀 ま '..Num_Games)
 end
 else
 send(msg.chat_id_, msg.id_,'𓌹 ⚚ ليس لديك صوره \n'..'\n*𓌹 ⚚ 𝗂𝖽 ま '..Id..'\n𓌹 ⚚ 𝗎𝗌𝖾𝗋 ま * ['..UserName_User..']*\n𓌹 ⚚ 𝗌𝗍𝖺𝗌 ま '..Status_Gps..'\n𓌹 ⚚ 𝗆𝖺𝗌𝗀 ま '..NumMsg..'\n𓌹 ⚚ 𝖾𝖽𝗂𝗍  ま '..message_edit..' \n𓌹 ⚚ 𝖺𝗎𝗍𝗈 ま '..TotalMsg..'\n𓌹 ⚚ 𝗀𝖺𝗆𝖾 ま '..Num_Games..'*') 
@@ -6918,8 +6918,8 @@ send(msg.chat_id_, msg.id_,'⍥︙عـليك الاشـتࢪاك في قنـاة
 end
 return false
 end    
-AhMeD = text:match("^اضف رسائل (%d+)$")
-database:set(bot_id.."Tshak:id:user"..msg.chat_id_,AhMeD)  
+taha = text:match("^اضف رسائل (%d+)$")
+database:set(bot_id.."Tshak:id:user"..msg.chat_id_,taha)  
 database:setex(bot_id.."Tshak:numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
 send(msg.chat_id_, msg.id_, "✉┆ارسل لي عدد الرسائل الان") 
 return false
@@ -6934,8 +6934,8 @@ send(msg.chat_id_, msg.id_,'⍥︙عـليك الاشـتࢪاك في قنـاة
 end
 return false
 end  
-AhMeD = text:match("^اضف مجوهرات (%d+)$")
-database:set(bot_id.."Tshak:idgem:user"..msg.chat_id_,AhMeD)  
+taha = text:match("^اضف مجوهرات (%d+)$")
+database:set(bot_id.."Tshak:idgem:user"..msg.chat_id_,taha)  
 database:setex(bot_id.."Tshak:gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
 send(msg.chat_id_, msg.id_, "⍥︙ارسل لي عدد المجوهرات الان") 
 return false
@@ -7025,19 +7025,19 @@ if #group == i then
 if (w + q) == 0 then
 send(msg.chat_id_, msg.id_,'⍥︙لا توجد مجموعات وهميه ')   
 else
-local AhMeD = (w + q)
-local sendok = #group - AhMeD
+local taha = (w + q)
+local sendok = #group - taha
 if q == 0 then
-AhMeD = ''
+taha = ''
 else
-AhMeD = '\n⍥︙ تم ازالة ~ '..q..' مجموعات من البوت'
+taha = '\n⍥︙ تم ازالة ~ '..q..' مجموعات من البوت'
 end
 if w == 0 then
 storm = ''
 else
 storm = '\n⍥︙ تم ازالة ~'..w..' مجموعه لان البوت عضو'
 end
-send(msg.chat_id_, msg.id_,'*⍥︙ عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..AhMeD..'\n⍥︙اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
+send(msg.chat_id_, msg.id_,'*⍥︙ عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..taha..'\n⍥︙اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
 end
 end
 end,nil)
@@ -7953,19 +7953,19 @@ if #group == i then
 if (w + q) == 0 then
 send(msg.chat_id_, msg.id_,'⍥︙لا توجد مجموعات وهميه ')   
 else
-local AhMeD = (w + q)
-local sendok = #group - AhMeD
+local taha = (w + q)
+local sendok = #group - taha
 if q == 0 then
-AhMeD = ''
+taha = ''
 else
-AhMeD = '\n⍥︙ تم ازالة ~ '..q..' مجموعات من البوت'
+taha = '\n⍥︙ تم ازالة ~ '..q..' مجموعات من البوت'
 end
 if w == 0 then
 storm = ''
 else
 storm = '\n⍥︙ تم ازالة ~'..w..' مجموعه لان البوت عضو'
 end
-send(msg.chat_id_, msg.id_,'*⍥︙ عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..AhMeD..'\n⍥︙اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
+send(msg.chat_id_, msg.id_,'*⍥︙ عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..taha..'\n⍥︙اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
 end
 end
 end,nil)
