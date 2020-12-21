@@ -7187,7 +7187,7 @@ if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
-local TextS = "\n⍥︙اهلا بك في متجر ملفات كوربيكا\n⍥︙يوجد في المتجر ملف الردود\n⚙┆يتم ادراج الملفات في التحديثات القادمه \nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n"
+local TextS = "\n⍥︙اهلا بك في متجر ملفات سبايدر\n⍥︙يوجد في المتجر ملف الردود\n⚙┆يتم ادراج الملفات في التحديثات القادمه \nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n"
 local TextE = "\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n⍥︙تدل علامة (✔) الملف مفعل\n".."⍥︙تدل علامة (܁༯) الملف معطل\n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
@@ -7317,10 +7317,10 @@ end
 Text = [[
 WeLCoMe TeAM KOrAPiCa ∴
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
-༯┆[KOrAPiCa TeAm](http://t.me/Spyder) ∴
-༯┆[INfO KOrAPiCa](https://t.me/infokora) ∴
-༯┆[ChAnEl](https://t.me/H6HHHH) ∴
-༯┆[DeVeLoPeR](https://t.me/iE1BOT) ∴
+⍥︙[KOrAPiCa TeAm](http://t.me/Sbyder) ∴
+⍥︙[INfO DPYDER](https://t.me/Sbyder) ∴
+⍥︙[Dev](https://t.me/VlVlVI) ∴
+⍥︙[Twasl](https://t.me/Y_8ibot) ∴
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
 ]]
 send(msg.chat_id_, msg.id_,Text)
@@ -7335,7 +7335,7 @@ send(msg.chat_id_, msg.id_,'⍥︙عـليك الاشـتࢪاك في قنـاة
 end
 return false
 end
-Text = [[܁༯ ┆  @LC6BOT   ]]
+Text = [[⍥︙ @Y_2ibot   ]]
 send(msg.chat_id_, msg.id_,Text)
 end
 if text == 'الاوامر' and Addictive(msg) then  
@@ -7357,7 +7357,7 @@ Text = [[
 ⍥︙ م4 » لعرض اوامر المنشئين
 ⍥︙ م5 » لعرض اوامر المطورين
  — — — — — — — — — 
-[܁ ༯┆Ch Source Spyder](t.me/Sbyder)
+[⍥︙ Ch Source Spyder](t.me/Sbyder)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7404,7 +7404,7 @@ Text = [[
 ⍥︙الكلايش
 ⍥︙السيلفي
  — — — — — — — — — 
-[܁ ༯┆Ch Source Spyder](t.me/Sbyder)
+[⍥︙ Ch Source Spyder](t.me/Sbyder)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7476,7 +7476,7 @@ Text = [[
 ⍥︙مسح الصلاحيات
 ⍥︙مسح الرابط
  — — — — — — — — — 
-[܁ ༯┆Ch Source Spyder](t.me/Sbyder)
+[⍥︙ Ch Source Spyder](t.me/Sbyder)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7523,7 +7523,7 @@ Text = [[
 ⍥︙تفعيل/تعطيل اوامر التحشيش
 ⍥︙تفعيل/تعطيل الرابط/جلب الرابط
  — — — — — — — — — 
-[܁ ༯┆Ch Source Spyder](t.me/Sbyder)
+[⍥︙ Ch Source Spyder](t.me/Sbyder)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7559,7 +7559,7 @@ Text = [[
 ⍥︙اضف رسائل + العدد بالرد
 ⍥︙اضف مجوهرات + العدد بالرد
  — — — — — — — — — 
-[܁ ༯┆Ch Source Spyder](t.me/Sbyder)
+[⍥︙ Ch Source Spyder](t.me/Sbyder)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7609,7 +7609,7 @@ Text = [[
 ⍥︙رفع/تنزيل منشئ اساسي
 ⍥︙مسح المنشئين الاساسين
  — — — — — — — — — 
-[܁ ༯┆Ch Source Spyder](t.me/Sbyder)
+[⍥︙ Ch Source Spyder](t.me/Sbyder)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -8256,8 +8256,8 @@ if text == "تحديث السورس ܁༯" then
 send(msg.chat_id_,msg.id_,'⍥︙تم التحديث')
 os.execute('rm -rf Spyder.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/korapica-Team/Spyder/master/Spyder.lua')
-os.execute('wget https://raw.githubusercontent.com/korapica-Team/Spyder/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/SpyderTele/Spyder/main/Spyder.lua')
+os.execute('wget https://raw.githubusercontent.com/SpyderTele/Spyder/main/start.lua')
 dofile('Spyder.lua')  
 return false
 end
