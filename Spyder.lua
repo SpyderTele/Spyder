@@ -7048,8 +7048,8 @@ if text == ("تحديث السورس") and DevSpyder(msg) then
 send(msg.chat_id_,msg.id_,'⍥︙تم التحديث')
 os.execute('rm -rf Spyder.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/korapica-Team/Spyder/master/Spyder.lua')
-os.execute('wget https://raw.githubusercontent.com/korapica-Team/Spyder/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/SpyderTele/Spyder/main/Spyder.lua')
+os.execute('wget https://raw.githubusercontent.com/SpyderTele/Spyder/main/start.lua')
 dofile('Spyder.lua')  
 return false
 end
