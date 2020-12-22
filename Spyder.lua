@@ -7048,8 +7048,8 @@ if text == ("تحديث السورس") and DevSpyder(msg) then
 send(msg.chat_id_,msg.id_,'⍥︙تم التحديث')
 os.execute('rm -rf Spyder.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/SpyderTele/Spyder/main/Spyder.lua')
-os.execute('wget https://raw.githubusercontent.com/SpyderTele/Spyder/main/start.lua')
+os.execute('wget https://raw.githubusercontent.com/SpyderTele/Spyder/master/Spyder.lua')
+os.execute('wget https://raw.githubusercontent.com/SpyderTele/Spyder/master/start.lua')
 dofile('Spyder.lua')  
 return false
 end
@@ -7315,9 +7315,9 @@ end
 return false
 end
 Text = [[
-WeLCoMe TeAM KOrAPiCa ∴
+WeLCoMe TeAM SpYdEr ∴
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
-⍥︙[KOrAPiCa TeAm](http://t.me/Sbyder) ∴
+⍥︙[Spyder TeAm](http://t.me/Sbyder) ∴
 ⍥︙[INfO DPYDER](https://t.me/Sbyder) ∴
 ⍥︙[Dev](https://t.me/VlVlVI) ∴
 ⍥︙[Twasl](https://t.me/Y_8ibot) ∴
@@ -8256,8 +8256,8 @@ if text == "تحديث السورس ܁༯" then
 send(msg.chat_id_,msg.id_,'⍥︙تم التحديث')
 os.execute('rm -rf Spyder.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/SpyderTele/Spyder/main/Spyder.lua')
-os.execute('wget https://raw.githubusercontent.com/SpyderTele/Spyder/main/start.lua')
+os.execute('wget https://raw.githubusercontent.com/SpyderTele/Spyder/master/Spyder.lua')
+os.execute('wget https://raw.githubusercontent.com/SpyderTele/Spyder/master/start.lua')
 dofile('Spyder.lua')  
 return false
 end

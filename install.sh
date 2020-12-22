@@ -10,7 +10,7 @@ chmod +x ts
 get() {
 rm -fr Spyder.lua
 rm -fr sudo.lua
-wget "https://raw.githubusercontent.com/SpyderTele/Spyder/main/Spyder.lua"
+wget "https://raw.githubusercontent.com/SpyderTele/Spyder/master/Spyder.lua"
 lua start.lua
 }
 installall(){
