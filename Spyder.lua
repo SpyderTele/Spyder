@@ -601,7 +601,7 @@ Chat_Type = 'GroupBot'
 end
 end
 if database:get(bot_id.."Spyder:Spyder:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == "الغاء" or text == "الغاء⌔" then   
+if text == "الغاء" or text == "الغاء الامر ✖️" then   
 send(msg.chat_id_, msg.id_,"⌔ ⦙ تم الغاء الاذاعه") 
 database:del(bot_id.."Spyder:Spyder:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
@@ -1146,7 +1146,7 @@ end
 end 
 
 if database:get(bot_id.."Spyder:Spyder:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == "الغاء" or text == "الغاء⌔" then   
+if text == "الغاء" or text == "الغاء الامر ✖️" then   
 send(msg.chat_id_, msg.id_,"⌔ ⦙ تم الغاء الاذاعه للخاص") 
 database:del(bot_id.."Spyder:Spyder:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
@@ -1180,7 +1180,7 @@ return false
 end
 
 if database:get(bot_id.."Spyder:Spyder:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == "الغاء" or text == "الغاء⌔" then   
+if text == "الغاء" or text == "الغاء الامر ✖️" then   
 send(msg.chat_id_, msg.id_,"⌔ ⦙ تم الغاء الاذاعه") 
 database:del(bot_id.."Spyder:Spyder:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
@@ -1214,7 +1214,7 @@ return false
 end
 
 if database:get(bot_id.."Spyder:Spyder:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == "الغاء" or text == "الغاء⌔" then   
+if text == "الغاء" or text == "الغاء الامر ✖️" then   
 send(msg.chat_id_, msg.id_,"⌔ ⦙ تم الغاء الاذاعه") 
 database:del(bot_id.."Spyder:Spyder:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false  
@@ -1235,7 +1235,7 @@ end
 return false
 end
 if database:get(bot_id.."Spyder:Spyder:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == "الغاء" or text == "الغاء⌔" then   
+if text == "الغاء" or text == "الغاء الامر ✖️" then   
 send(msg.chat_id_, msg.id_,"⌔ ⦙ تم الغاء الاذاعه") 
 database:del(bot_id.."Spyder:Spyder:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false  
@@ -1266,7 +1266,7 @@ return false
 end
 end
 if database:get(bot_id.."Spyder:Set:Name:Bot"..msg.sender_user_id_) then 
-if text == "الغاء" or text == "الغاء⌔" then   
+if text == "الغاء" or text == "الغاء الامر ✖️" then   
 send(msg.chat_id_, msg.id_,"⌔ ⦙  تم الغاء حفظ اسم البوت") 
 database:del(bot_id.."Spyder:Set:Name:Bot"..msg.sender_user_id_) 
 return false  
@@ -2276,7 +2276,7 @@ end
 return false
 end
 database:del(bot_id.."Spyder:Mod:User"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, "🗑┆ تم مسح  قائمة الادمنية  ")
+send(msg.chat_id_, msg.id_, "⌔ ⦙ تم مسح  قائمة الادمنية  ")
 end
 if text == "مسح المميزين" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -2289,7 +2289,7 @@ end
 return false
 end
 database:del(bot_id.."Spyder:Special:User"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, "🗑┆ تم مسح  قائمة الاعضاء المميزين  ")
+send(msg.chat_id_, msg.id_, "⌔ ⦙ تم مسح  قائمة الاعضاء المميزين  ")
 end
 if text == "مسح المكتومين" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -2302,7 +2302,7 @@ end
 return false
 end
 database:del(bot_id.."Spyder:Muted:User"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, "🗑┆ تم مسح قائمه المكتومين ")
+send(msg.chat_id_, msg.id_, "⌔ ⦙ تم مسح قائمه المكتومين ")
 end
 if text == "مسح المحظورين" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -6128,45 +6128,6 @@ end
 database:set(bot_id..'Spyder:Lock:ID:Bot:Photo'..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,'⌔ ⦙ تم تعطيل الايدي بالصوره') 
 end
-if text == "تعطيل صيح" and Owner(msg) then
-send(msg.chat_id_, msg.id_, '⌔ ⦙ تم تعطيل امر *صيح*')
-database:set(bot_id.."Spyder:seh_Bots"..msg.chat_id_,"close")
-end
-if text == "تفعيل صيح" and Owner(msg) then
-send(msg.chat_id_, msg.id_,'⌔ ⦙ تم تفعيل امر *صيح*')
-database:set(bot_id.."Spyder:seh_Bots"..msg.chat_id_,"open")
-end
-if text and text:match("^صيح (.*)$") and database:get(bot_id.."Spyder:seh_Bots"..msg.chat_id_) == "open" then
-local username = text:match("^صيح (.*)$") 
-if not database:get(bot_id..'Seh:User'..msg.chat_id_) then
-function start_function(extra, result, success)
-if result and result.message_ and result.message_ == "USERNAME_NOT_OCCUPIED" then 
-send(msg.chat_id_, msg.id_,'⌔ ⦙ المعرف غلط ') 
-return false  
-end
-if result and result.type_ and result.type_.channel_ and result.type_.channel_.ID == "Channel" then
-send(msg.chat_id_, msg.id_,'⌔ ⦙ لا اسطيع صيح معرفات القنوات') 
-return false  
-end
-if result.type_.user_.type_.ID == "UserTypeBot" then
-send(msg.chat_id_, msg.id_,'⌔ ⦙ لا اسطيع صيح معرفات البوتات') 
-return false  
-end
-if result and result.type_ and result.type_.channel_ and result.type_.channel_.is_supergroup_ == true then
-send(msg.chat_id_, msg.id_,'⌔ ⦙ لا اسطيع صيح معرفات المجموعات') 
-return false  
-end
-if result.id_ then
-send(msg.chat_id_, msg.id_,'⌔ ⦙ تعال حبي يصيحونك بل كروب [@'..username..']') 
-return false
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
-else
-send(msg.chat_id_, msg.id_,'⌔ ⦙ امر صيح تم تعطيله من قبل المدراء ') 
-end
-return false
-end
 if text == 'تعين الايدي' and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -6350,37 +6311,6 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Spyder, nil)
 return false
 end
-if text == "all" and Constructor(msg) or text == "@all" and Constructor(msg) then
-if database:get(bot_id.."all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
-return 
-send(msg.chat_id_, msg.id_,"*⌔ ⦙ انتظر 5 دقايق لعمل تاك للكل *")
-end
-database:setex(bot_id..'all:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
-tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa) 
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = dataa.member_count_},function(ta,amir)
-x = 0
-tags = 0
-local list = amir.members_
-for k, v in pairs(list) do
-tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
-if x == 5 or x == tags or k == 0 then
-tags = x + 5
-t = "#all"
-end
-x = x + 1
-tagname = data.first_name_
-tagname = tagname:gsub("]","")
-tagname = tagname:gsub("[[]","")
-t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")"
-if x == 5 or x == tags or k == 0 then
-local Text = t:gsub('#all,','#all\n')
-sendText(msg.chat_id_,Text,0,'md')
-end
-end,nil)
-end
-end,nil)
-end,nil)
-end
 if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
 database:sadd(bot_id.."allM"..msg.chat_id_, msg.id_)
 end
@@ -6462,6 +6392,53 @@ if text:match('^الحساب (%d+)$') then
 local id = text:match('^الحساب (%d+)$')
 local text = '⌔ ⦙ اضغط لمشاهدة العضو'
 tdcli_function ({ID="SendMessage", chat_id_=msg.chat_id_, reply_to_message_id_=msg.id_, disable_notification_=0, from_background_=1, reply_markup_=nil, input_message_content_={ID="InputMessageText", text_=text, disable_web_page_preview_=1, clear_draft_=0, entities_={[0] = {ID="MessageEntityMentionName", offset_=0, length_=19, user_id_=id}}}}, dl_cb, nil)
+end
+if text == "all" and Constructor(msg) or text == "@all" and Constructor(msg) then
+if database:get(bot_id.."all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
+return 
+send(msg.chat_id_, msg.id_,"*⌔ ⦙ انتظر 5 دقايق لعمل تاك للكل *")
+end
+database:setex(bot_id..'all:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
+tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa) 
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = dataa.member_count_},function(ta,amir)
+x = 0
+tags = 0
+local list = amir.members_
+for k, v in pairs(list) do
+tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
+if x == 5 or x == tags or k == 0 then
+tags = x + 5
+t = "#all"
+end
+x = x + 1
+tagname = data.first_name_
+tagname = tagname:gsub("]","")
+tagname = tagname:gsub("[[]","")
+t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")"
+if x == 5 or x == tags or k == 0 then
+local Text = t:gsub('#all,','#all\n')
+sendText(msg.chat_id_,Text,0,'md')
+end
+end,nil)
+end
+end,nil)
+end,nil)
+end
+
+if text == 'السيرفر' or text == 'معلومات السيرفر 🗃️' and DevSpyder(msg) then 
+send(msg.chat_id_, msg.id_, io.popen([[
+linux_version=`lsb_release -ds`
+memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
+HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
+CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
+uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
+echo '⌔ ⦙ *نظام التشغيل ↓*\n* -›  -›  '"$linux_version"'*' 
+echo '*———————————~*\n⌔ ⦙ الذاكره العشوائيه ⇊\n* -›  -›  '"$memUsedPrc"'*'
+echo '*———————————~*\n⌔ ⦙ وحـده الـتـخـزيـن ⇊\n* -›  -›  '"$HardDisk"'*'
+echo '*———————————~*\n⌔ ⦙ الـمــعــالــج ⇊\n* -›  -›  '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
+echo '*———————————~*\n⌔ ⦙ الــدخــول ⇊\n* -›  -›  '`whoami`'*'
+echo '*———————————~*\n⌔ ⦙ مـده تـشغيـل الـسـيـرفـر ⇊\n* -›  -›  '"$uptime"'*'
+]]):read('*all'))  
 end
 if text == "سمايلات" or text == "سمايل" then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -7206,6 +7183,28 @@ os.execute('wget https://raw.githubusercontent.com/SpyderTele/Spyder/master/star
 dofile('Spyder.lua')  
 return false
 end
+------------------------------------------------------------------------
+if text == "تعطيل الزخرفه" and Owner(msg) then
+send(msg.chat_id_, msg.id_, '⌔︙ تم تعطيل الزخرفه')
+database:set(bot_id.." MERO:zhrf_Bots"..msg.chat_id_,"close")
+end
+if text == "تفعيل الزخرفه" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'⌔︙ تم تفعيل الزخرفه')
+database:set(bot_id.." MERO:zhrf_Bots"..msg.chat_id_,"open")
+end
+if text and text:match("^زخرفه (.*)$") and database:get(bot_id.." MERO:zhrf_Bots"..msg.chat_id_) == "open" then
+local TextZhrfa = text:match("^زخرفه (.*)$")
+zh = https.request('https://ahmedcg4.ml/Spyder/Dev.php?AhMd='..URL.escape(TextZhrfa)..'')
+zx = JSON.decode(zh)
+t = "\n⌔︙قائمه الزخرفه \nٴ⌔︙○━━━Spyder━━━⌔︙○ٴ \n"
+i = 0
+for k,v in pairs(zx.ok) do
+i = i + 1
+t = t..i.."-  `"..v.."` \n"
+end
+send(msg.chat_id_, msg.id_, t..'ٴ○━━━l━━━○ٴ\n⌔︙اضغط على الاسم ليتم نسخه')
+end
+------------------------------------------------------------------------
 if text == 'تفعيل البوت الخدمي' and DevSpyder(msg) then  
 database:del(bot_id..'Spyder:Free:Add:Bots') 
 send(msg.chat_id_, msg.id_,'⌔ ⦙ تم تفعيل البوت الخدمي ') 
@@ -7222,7 +7221,7 @@ end
 if text =='الاحصائيات' and DevBot(msg) then
 local Groups = database:scard(bot_id..'Spyder:Chek:Groups')  
 local Users = database:scard(bot_id..'Spyder:UsersBot')  
-send(msg.chat_id_, msg.id_,'⌔ ⦙ احصائيات البوت \n\n⌔ ⦙ عدد المجموعات *~ '..Groups..'\n⌔ ⦙ عدد المشتركين ~ '..Users..'*')
+send(msg.chat_id_, msg.id_,'*⌔ ⦙ احصائيات البوت ⇊*\n\n⌔ ⦙ عدد المجموعات ~ *'..Groups..'*\n⌔ ⦙ عدد المشتركين ~ *'..Users..'*')
 end
 if text == 'جلب نسخه احتياطيه' and DevSpyder(msg) then
 local list = database:smembers(bot_id..'Spyder:Chek:Groups')  
@@ -7931,25 +7930,24 @@ end
 if DevSpyder(msg) then
 local Text = '*⌔ ⦙ مرحبا بك في اوامر المطور الجاهزه*'
 local keyboard = {
-{'الاحصائيات⌔'},
-{'تفعيل التواصل⌔','تعطيل التواصل⌔'},
-{'تنظيف الكروبات⌔','تنظيف المشتركين⌔'},
-{'تفعيل البوت الخدمي⌔','تعطيل البوت الخدمي⌔'},
-{'اذاعه خاص⌔','المطورين⌔','اذاعه⌔'},
-{'اذاعه بالتوجيه⌔','اذاعه بالتوجيه خاص⌔'},
-{'تفعيل الاذاعه⌔','تعطيل الاذاعه⌔'},
-{'تفعيل المغادره⌔','تعطيل المغادره⌔'},
-{'مسح قائمه العام⌔','مسح المطورين⌔'},
-{'حذف كليشه ستارت⌔','ضع كليشه ستارت⌔'},
-{'- تعطيل الاشتراك الاجباري⌔ .'},
-{'- تغير الاشتراك⌔ .','حذف رساله الاشتراك⌔ .'},
-{'- تفعيل الاشتراك الاجباري⌔ .'},
-{'- الاشتراك الاجباري⌔ .'},
-{'- تعين قناة الاشتراك⌔ .','- تغير رساله الاشتراك⌔ .'},
-{'تحديث السورس⌔','تحديث الملفات⌔'},
-{'قائمه العام⌔'},
-{'جلب نسخه احتياطيه⌔'},
-{'الغاء⌔'}
+{'الاحصائيات 📉'},
+{'تفعيل التواصل 🔰','تعطيل التواصل ➗'},
+{'تنظيف الكروبات 📇','تنظيف المشتركين 🔂'},
+{'تفعيل البوت الخدمي ♨️','تعطيل البوت الخدمي ✖️'},
+{'اذاعه خاص 📧','المطورين 🛡️','اذاعة عام 📬'},
+{'اذاعه بالتوجيه 🔀','اذاعة خاص بالتوجيه 📥'},
+{'تفعيل الاذاعه 📨','تعطيل الاذاعه 🚫'},
+{'تفعيل المغادره 🔔','تعطيل المغادره ⚓'},
+{'مسح قائمه العام 📌','مسح المطورين 📋','قائمه العام ⛔'},
+{'حذف كليشة ستارت 🔗','تغير كليشه Start 📩'},
+{'تفعيل الاشتراك 🔭','تعطيل الاشتراك 📠'},
+{'تغير الاشتراك 🔌','حذف رسالة الاشتراك ⌨️'},
+{'الاشتراك الاجباري 🗳️'},
+{'تغير رساله الاشتراك ✉️','تعين قناة الاشتراك ⏳'},
+{'تحديث السورس ⚙️','تحديث الملفات 🗂️'},
+{'معلومات السيرفر 🗃️'},
+{'جلب نسخه احتياطيه 📁'},
+{'الغاء الامر ✖️'}
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
 else
@@ -8018,20 +8016,20 @@ end
 sendText(Id_Sudo,Text..'\n'..'⌔ ⦙  ~ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')',0,'md') 
 end,nil);end,nil);end,nil);end,nil);end 
 if DevSpyder(msg) then
-if text == 'تفعيل التواصل⌔' then  
+if text == 'تفعيل التواصل 🔰' then  
 database:del(bot_id..'Texting:In:Bv') 
 send(msg.chat_id_, msg.id_,'⌔ ⦙  تم تفعيل التواصل ') 
 end
-if text == 'تعطيل التواصل⌔' then  
+if text == 'تعطيل التواصل ➗' then  
 database:set(bot_id..'Texting:In:Bv',true) 
 send(msg.chat_id_, msg.id_,'⌔ ⦙  تم تعطيل التواصل ') 
 end
-if text =='الاحصائيات⌔' then
+if text =='الاحصائيات 📉' then
 local Groups = database:scard(bot_id..'Spyder:Chek:Groups')  
 local Users = database:scard(bot_id..'Spyder:UsersBot')  
-send(msg.chat_id_, msg.id_,'⌔ ⦙ احصائيات البوت \n\n⌔ ⦙ عدد المجموعات *~ '..Groups..'\n⌔ ⦙ عدد المشتركين ~ '..Users..'*')
+send(msg.chat_id_, msg.id_,'*⌔ ⦙ احصائيات البوت ⇊*\n\n⌔ ⦙ عدد المجموعات ~* '..Groups..'*\n⌔ ⦙ عدد المشتركين ~* '..Users..'*')
 end
-if text == "تنظيف المشتركين⌔" then
+if text == "تنظيف المشتركين 🔂" then
 local pv = database:smembers(bot_id..'Spyder:UsersBot')  
 local sendok = 0
 for i = 1, #pv do
@@ -8057,7 +8055,7 @@ end,nil)
 end
 return false
 end
-if text == "تنظيف الكروبات⌔" then
+if text == "تنظيف الكروبات 📇" then
 local group = database:smembers(bot_id..'Spyder:Chek:Groups')  
 local w = 0
 local q = 0
@@ -8106,15 +8104,15 @@ end,nil)
 end
 return false
 end
-if text == 'تفعيل البوت الخدمي⌔' then
+if text == 'تفعيل البوت الخدمي ♨️' then
 database:del(bot_id..'Spyder:Free:Add:Bots') 
 send(msg.chat_id_, msg.id_,'\n⌔ ⦙ تم تفعيل البوت الخدمي ') 
 end
-if text == 'تعطيل البوت الخدمي⌔' then
+if text == 'تعطيل البوت الخدمي ✖️' then
 database:set(bot_id..'Spyder:Free:Add:Bots',true) 
 send(msg.chat_id_, msg.id_,'\n⌔ ⦙ تم تعطيل البوت الخدمي') 
 end
-if text=="اذاعه خاص⌔" and msg.reply_to_message_id_ == 0 then
+if text=="اذاعه خاص 📧" and msg.reply_to_message_id_ == 0 then
 if database:get(bot_id.."Spyder:Status:Bc") and not DevSpyder(msg) then 
 send(msg.chat_id_, msg.id_,"⌔ ⦙ الاذاعه معطله من قبل المطور الاساسي")
 return false
@@ -8123,7 +8121,7 @@ database:setex(bot_id.."Spyder:Spyder:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sende
 send(msg.chat_id_, msg.id_,"⌔ ⦙ ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n⌔ ⦙ للخروج ارسل الغاء ") 
 return false
 end 
-if text=="اذاعه⌔" and msg.reply_to_message_id_ == 0 then
+if text=="اذاعة عام 📬" and msg.reply_to_message_id_ == 0 then
 if database:get(bot_id.."Spyder:Status:Bc") and not DevSpyder(msg) then 
 send(msg.chat_id_, msg.id_,"⌔ ⦙ الاذاعه معطله من قبل المطور الاساسي")
 return false
@@ -8132,7 +8130,7 @@ database:setex(bot_id.."Spyder:Spyder:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.se
 send(msg.chat_id_, msg.id_,"⌔ ⦙ ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n⌔ ⦙ للخروج ارسل الغاء ") 
 return false
 end  
-if text=="اذاعه بالتوجيه⌔" and msg.reply_to_message_id_ == 0  then
+if text=="اذاعه بالتوجيه 🔀" and msg.reply_to_message_id_ == 0  then
 if database:get(bot_id.."Spyder:Status:Bc") and not DevSpyder(msg) then 
 send(msg.chat_id_, msg.id_,"⌔ ⦙ الاذاعه معطله من قبل المطور الاساسي")
 return false
@@ -8141,7 +8139,7 @@ database:setex(bot_id.."Spyder:Spyder:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.s
 send(msg.chat_id_, msg.id_,"⌔ ⦙ ارسل لي التوجيه الان") 
 return false
 end 
-if text=="اذاعه بالتوجيه خاص⌔" and msg.reply_to_message_id_ == 0  then
+if text=="اذاعة خاص بالتوجيه 📥" and msg.reply_to_message_id_ == 0  then
 if database:get(bot_id.."Spyder:Status:Bc") and not DevSpyder(msg) then 
 send(msg.chat_id_, msg.id_,"⌔ ⦙ الاذاعه معطله من قبل المطور الاساسي")
 return false
@@ -8150,28 +8148,28 @@ database:setex(bot_id.."Spyder:Spyder:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.send
 send(msg.chat_id_, msg.id_,"⌔ ⦙ ارسل لي التوجيه الان") 
 return false
 end 
-if text == "تفعيل الاذاعه⌔" then
+if text == "تفعيل الاذاعه 📨" then
 database:del(bot_id.."Spyder:Status:Bc") 
 send(msg.chat_id_, msg.id_,"\n⌔ ⦙ تم تفعيل الاذاعه " ) 
 return false
 end 
-if text == "تعطيل الاذاعه⌔" then
+if text == "تعطيل الاذاعه 🚫" then
 database:set(bot_id.."Spyder:Status:Bc",true) 
 send(msg.chat_id_, msg.id_,"\n⌔ ⦙ تم تعطيل الاذاعه") 
 return false
 end 
-if text == "تفعيل المغادره⌔" then
+if text == "تفعيل المغادره 🔔" then
 database:del(bot_id.."Spyder:Left:Bot"..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,"⌔ ⦙ تم تفعيل مغادرة البوت") 
 return false 
 end
-if text == "تعطيل المغادره⌔" then
+if text == "تعطيل المغادره ⚓" then
 database:set(bot_id.."Spyder:Left:Bot"..msg.chat_id_,true)   
 send(msg.chat_id_, msg.id_, "⌔ ⦙ تم تعطيل مغادرة البوت") 
 return false 
 end
 if text and database:get(bot_id..'Start:Bots') then
-if text == 'الغاء⌔' then   
+if text == 'الغاء الامر ✖️' then   
 send(msg.chat_id_, msg.id_,"⌔ ⦙ تم الغاء حفظ كليشه ستارت") 
 database:del(bot_id..'Start:Bots') 
 return false
@@ -8181,36 +8179,53 @@ send(msg.chat_id_, msg.id_,'⌔ ⦙ تم حفظ كليشه ستارت')
 database:del(bot_id..'Start:Bots') 
 return false
 end
-if text == 'ضع كليشه ستارت⌔' then
+
+if text == 'معلومات السيرفر 🗃️' then 
+send(msg.chat_id_, msg.id_, io.popen([[
+linux_version=`lsb_release -ds`
+memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
+HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
+CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
+uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
+echo '⌔ ⦙ *نظام التشغيل ↓*\n* -›  -›  '"$linux_version"'*' 
+echo '*———————————~*\n*⌔ ⦙ الــدخــول ⇊*\n* -›  -›  '`whoami`'*'
+echo '*———————————~*\n*⌔ ⦙ الـمــعــالــج ⇊*\n* -›  -›  '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
+echo '*———————————~*\n*⌔ ⦙ الذاكره العشوائيه ⇊*\n* -›  -›  '"$memUsedPrc"'*'
+echo '*———————————~*\n*⌔ ⦙ وحـده الـتـخـزيـن ⇊*\n* -›  -›  '"$HardDisk"'*'
+echo '*———————————~*\n*⌔ ⦙ مـده تـشغيـل الـسـيـرفـر ⇊*\n* -›  -›  '"$uptime"'*'
+]]):read('*all'))  
+end
+
+if text == 'تغير كليشه Start 📩' then
 database:set(bot_id..'Start:Bots',true) 
 send(msg.chat_id_, msg.id_,'⌔ ⦙ ارسل لي الكليشه الان') 
 return false
 end
-if text == 'حذف كليشه ستارت⌔' then
+if text == 'حذف كليشة ستارت 🔗' then
 database:del(bot_id..'Start:Bot') 
 send(msg.chat_id_, msg.id_,'⌔ ⦙ تم حذف كليشه ستارت') 
 end
-if text and text:match("^- تغير الاشتراك⌔ .$") and DevSpyder(msg) then  
+if text and text:match("^تغير الاشتراك 🔌$") and DevSpyder(msg) then  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '⌔ ⦙ حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text and text:match("^- تغير رساله الاشتراك⌔ .$") and DevSpyder(msg) then  
+if text and text:match("^تغير رساله الاشتراك ✉️$") and DevSpyder(msg) then  
 database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '⌔ ⦙ حسنآ ارسل لي النص الذي تريده')
 return false  
 end
-if text == "حذف رساله الاشتراك⌔ ." and DevSpyder(msg) then  
+if text == "حذف رسالة الاشتراك ⌨️" and DevSpyder(msg) then  
 database:del(bot_id..'text:ch:user')
 send(msg.chat_id_, msg.id_, "⌔ ⦙ تم مسح رساله الاشتراك ")
 return false  
 end
-if text and text:match("^- تعين قناة الاشتراك⌔ .$") and DevSpyder(msg) then  
+if text and text:match("^تعين قناة الاشتراك ⏳$") and DevSpyder(msg) then  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '⌔ ⦙ حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text == "- تفعيل الاشتراك الاجباري⌔ ." and DevSpyder(msg) then  
+if text == "تفعيل الاشتراك 🔭" and DevSpyder(msg) then  
 if database:get(bot_id..'add:ch:id') then
 local addchusername = database:get(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_,"⌔ ⦙ الاشتراك الاجباري مفعل \n⌔ ⦙ على القناة -› ["..addchusername.."]")
@@ -8220,13 +8235,13 @@ send(msg.chat_id_, msg.id_,"⌔ ⦙ اهلا عزيزي المطور \n⌔ ⦙ �
 end
 return false  
 end
-if text == "- تعطيل الاشتراك الاجباري⌔ ." and DevSpyder(msg) then  
+if text == "تعطيل الاشتراك 📠" and DevSpyder(msg) then  
 database:del(bot_id..'add:ch:id')
 database:del(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_, "⌔ ⦙ تم تعطيل الاشتراك الاجباري ")
 return false  
 end
-if text == "- الاشتراك الاجباري⌔ ." and DevSpyder(msg) then  
+if text == "الاشتراك الاجباري 🗳️" and DevSpyder(msg) then  
 if database:get(bot_id..'add:ch:username') then
 local addchusername = database:get(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_, "⌔ ⦙ تم تفعيل الاشتراك الاجباري \n⌔ ⦙ على القناة -› ["..addchusername.."]")
@@ -8277,16 +8292,16 @@ local texxt = string.match(text, "(.*)")
 database:set(bot_id..'text:ch:user',texxt)
 send(msg.chat_id_, msg.id_,'⌔ ⦙ تم تغيير رسالة الاشتراك ')
 end
-if text == ("مسح قائمه العام⌔") and DevSpyder(msg) then
+if text == ("مسح قائمه العام 📌") and DevSpyder(msg) then
 database:del(bot_id.."Spyder:GBan:User")
 send(msg.chat_id_, msg.id_, "\n⌔ ⦙ تم مسح قائمه العام")
 return false
 end
-if text == ("مسح المطورين⌔") and DevSpyder(msg) then
+if text == ("مسح المطورين 📋") and DevSpyder(msg) then
 database:del(bot_id.."Spyder:Sudo:User")
 send(msg.chat_id_, msg.id_, "\n⌔ ⦙  تم مسح قائمة المطورين  ")
 end
-if text == ("قائمه العام⌔") and DevSpyder(msg) then
+if text == ("قائمه العام ⛔") and DevSpyder(msg) then
 local list = database:smembers(bot_id.."Spyder:GBan:User")
 t = "\n⌔ ⦙ قائمة المحظورين عام \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
 for k,v in pairs(list) do
@@ -8303,7 +8318,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == ("المطورين⌔") and DevSpyder(msg) then
+if text == ("المطورين 🛡️") and DevSpyder(msg) then
 local list = database:smembers(bot_id.."Spyder:Sudo:User")
 t = "\n⌔ ⦙ قائمة مطورين البوت \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
 for k,v in pairs(list) do
@@ -8319,7 +8334,7 @@ t = "⌔ ⦙ لا يوجد مطورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == 'جلب نسخه احتياطيه⌔' then
+if text == 'جلب نسخه احتياطيه 📁' then
 local list = database:smembers(bot_id..'Spyder:Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
@@ -8386,7 +8401,7 @@ File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '⌔ ⦙  عدد مجموعات التي في البوت { '..#list..'}')
 end
-if text == "تحديث السورس⌔" then
+if text == "تحديث السورس ⚙️" then
 send(msg.chat_id_,msg.id_,'*⌔ ⦙ تم التحديث*')
 os.execute('rm -rf Spyder.lua')
 os.execute('rm -rf start.lua')
@@ -8395,7 +8410,7 @@ os.execute('wget https://raw.githubusercontent.com/SpyderTele/Spyder/master/star
 dofile('Spyder.lua')  
 return false
 end
-if text == "تحديث الملفات⌔" then
+if text == "تحديث الملفات 🗂️" then
 dofile("Spyder.lua")  
 send(msg.chat_id_, msg.id_, "*⌔ ⦙ تم التحديث*")
 end
