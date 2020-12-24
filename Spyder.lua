@@ -7175,7 +7175,7 @@ end
 return false
 end
 if text == ("تحديث السورس") and DevSpyder(msg) then  
-send(msg.chat_id_,msg.id_,'*⌔ ⦙ تم التحديث*')
+send(msg.chat_id_,msg.id_,'*⌔ ⦙ تم التحديث السورس*')
 os.execute('rm -rf Spyder.lua')
 os.execute('rm -rf start.lua')
 os.execute('wget https://raw.githubusercontent.com/SpyderTele/Spyder/master/Spyder.lua')
@@ -7434,7 +7434,7 @@ end
 end
 if text == "تحديث" and DevSpyder(msg) then
 dofile("Spyder.lua")  
-send(msg.chat_id_, msg.id_, "*⌔ ⦙ تم التحديث*")
+send(msg.chat_id_, msg.id_, "*⌔ ⦙ تم تحديث الملفات*")
 end
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -7447,13 +7447,17 @@ end
 return false
 end
 Text = [[
-*WeLCoMe TeAM Spyder *
+*⦑ Welcome to Source ⦒*
+
+𓂅 *. Spyder TeAM *
 *••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••*
-⌔ ⦙ [Source TeAm Spyder](http://t.me/Sbyder)
-⌔ ⦙ [info Ch Spyder ](https://t.me/Sbyder)
-⌔ ⦙ [The developer](https://t.me/VlVlVI)
-⌔ ⦙ [Twsl BoT .](https://t.me/Y_8ibot)
+𓂅 . [Source Channel .](http://t.me/Sbyder)
+
+𓂅 . [Source Info .](https://t.me/Sbyder)
+
+𓂅 . [The Developer .](https://t.me/VlVlVI)
 *••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••*
+𓂅 . [Bot TwsL Dev .](https://t.me/Y_8ibot)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 end
@@ -7467,7 +7471,9 @@ send(msg.chat_id_, msg.id_,'⌔ ⦙ عـليك الاشـتࢪاك في قنـا
 end
 return false
 end
-Text = [[⌔ ⦙  @Y_2ibot   ]]
+Text = [[*⌔ ⦙ بوت حذف الحسابات*
+*⌔ ⦙ معرف البوت : @Y_2ibot*
+]]
 send(msg.chat_id_, msg.id_,Text)
 end
 if text == 'الاوامر' and Addictive(msg) then  
