@@ -8532,6 +8532,17 @@ database:del(bot_id.."Spyder:Del:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_
 return false
 end
 ------------------------------------------------------------------------
+if text:match("^كول (.*)$") then
+local txt = {string.match(text, "^(كول) (.*)$")}
+send(msg.chat_id_, 0, txt[2], "md")
+local id = msg.id_
+local msgs = {
+[0] = id
+}
+local chat = msg.chat_id_
+delete_msg(chat, msgs)
+end
+------------------------------------------------------------------------
 if data.message_.content_.text_ then
 local NewCmmd = database:get(bot_id.."Spyder:Set:Cmd:Group:New1"..msg.chat_id_..":"..data.message_.content_.text_)
 if NewCmmd then
