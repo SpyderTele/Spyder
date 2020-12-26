@@ -342,7 +342,7 @@ ID="InputMessageAudio",
 audio_ = GetInputFile(audio),
 duration_ = "",
 title_ = title or "",
-performer_ = "اهداء الاغنية من البوت لك 💓",
+performer_ = "⌔ ⦙ تم اختيار المقطع الصوتي 🎙️",
 caption_ = caption or ""
 }},func or dl_cb,nil)
 end
@@ -1267,18 +1267,18 @@ end
 end
 if database:get(bot_id.."Spyder:Set:Name:Bot"..msg.sender_user_id_) then 
 if text == "الغاء" or text == "الغاء الامر ✖️" then   
-send(msg.chat_id_, msg.id_,"⌔ ⦙  تم الغاء حفظ اسم البوت") 
+send(msg.chat_id_, msg.id_,"*⌔ ⦙  تم الغاء حفظ اسم البوت*") 
 database:del(bot_id.."Spyder:Set:Name:Bot"..msg.sender_user_id_) 
 return false  
 end 
 database:del(bot_id.."Spyder:Set:Name:Bot"..msg.sender_user_id_) 
 database:set(bot_id.."Spyder:Name:Bot",text) 
-send(msg.chat_id_, msg.id_, "⌔ ⦙  تم حفظ اسم البوت")  
+send(msg.chat_id_, msg.id_, "*⌔ ⦙  تم حفظ اسم البوت*")  
 return false
 end 
 if text and database:get(bot_id.."Spyder:Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_) == "true" then
 database:set(bot_id.."Spyder:Set:Cmd:Group:New"..msg.chat_id_,text)
-send(msg.chat_id_, msg.id_,"⌔ ⦙ ارسل الامر الجديد")  
+send(msg.chat_id_, msg.id_,"*⌔ ⦙ ارسل الامر الجديد*")  
 database:del(bot_id.."Spyder:Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_)
 database:set(bot_id.."Spyder:Set:Cmd:Group1"..msg.chat_id_..":"..msg.sender_user_id_,"true1") 
 return false
@@ -1287,7 +1287,7 @@ if text and database:get(bot_id.."Spyder:Set:Cmd:Group1"..msg.chat_id_..":"..msg
 local NewCmd = database:get(bot_id.."Spyder:Set:Cmd:Group:New"..msg.chat_id_)
 database:set(bot_id.."Spyder:Set:Cmd:Group:New1"..msg.chat_id_..":"..text,NewCmd)
 database:sadd(bot_id.."Spyder:List:Cmd:Group:New"..msg.chat_id_,text)
-send(msg.chat_id_, msg.id_,"⌔ ⦙ تم حفظ الامر")  
+send(msg.chat_id_, msg.id_,"*⌔ ⦙ تم حفظ الامر*")  
 database:del(bot_id.."Spyder:Set:Cmd:Group1"..msg.chat_id_..":"..msg.sender_user_id_)
 return false
 end
@@ -1296,32 +1296,32 @@ if Chat_Type == 'GroupBot' then
 if ChekAdd(msg.chat_id_) == true then
 if text == "قفل الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then 
 database:set(bot_id.."Spyder:Lock:text"..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔ ⦙ تم قفـل الدردشه")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔ ⦙ تم قفـل الدردشه*")  
 return false
 end 
 if text == "قفل الاضافه" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."Spyder:Lock:AddMempar"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔ ⦙ تم قفـل اضافة الاعضاء")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔ ⦙ تم قفـل اضافة الاعضاء*")  
 return false
 end 
 if text == "قفل الدخول" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."Spyder:Lock:Join"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔ ⦙ تم قفـل دخول الاعضاء")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔ ⦙ تم قفـل دخول الاعضاء*")  
 return false
 end 
 if text == "قفل البوتات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."Spyder:Lock:Bot:kick"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔ ⦙ تم قفـل البوتات")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔ ⦙ تم قفـل البوتات*")  
 return false
 end 
 if text == "قفل البوتات بالطرد" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."Spyder:Lock:Bot:kick"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","⌔ ⦙ تم قفـل البوتات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","*⌔ ⦙ تم قفـل البوتات*")  
 return false
 end 
 if text == "قفل الاشعارات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
 database:set(bot_id.."Spyder:Lock:tagservr"..msg.chat_id_,true)  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔ ⦙ تم قفـل الاشعارات")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔ ⦙ تم قفـل الاشعارات*")  
 return false
 end 
 if text == "قفل التثبيت" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
@@ -5644,7 +5644,7 @@ end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" or text == "حذف اسم البوت" then 
 if DevSpyder(msg) then
 database:setex(bot_id.."Spyder:Set:Name:Bot"..msg.sender_user_id_,300,true) 
-send(msg.chat_id_, msg.id_,"⌔ ⦙  ارسل لي الاسم الان ")  
+send(msg.chat_id_, msg.id_,"*⌔ ⦙  ارسل لي الاسم الان*")  
 end
 return false
 end
@@ -5652,7 +5652,7 @@ end
 if text ==("مسح المطرودين") and Addictive(msg) then    
 local function delbans(extra, result)  
 if not msg.can_be_deleted_ == true then  
-send(msg.chat_id_, msg.id_, "⌔ ⦙  يرجى ترقيتي ادمن هنا") 
+send(msg.chat_id_, msg.id_, "*⌔ ⦙  يرجى ترقيتي ادمن هنا*") 
 return false
 end  
 local num = 0 
@@ -6362,7 +6362,7 @@ DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
 send(msg.chat_id_, msg.id_,'*⌔ ⦙ تم حذف جميع الرسائل المعدله*')
 end
-if text == "غني" or text == "غني"  then  
+if text == "غني" then  
 local RAAD = {
 "\n😻لحكتني للبستان بتكم يا عالم🌝\n🕺بنيه كلش حلوه وتسوى كل دنيايه💃\n🕺وقلبي قلبي احسه ضل يدك هوايه💃\n💃كلتلي اي يفﻻن حبك عماني🕺\n💃كتلها بنت الناس معقوله اني🕺\n👫كتلها بنت الناس معقوله اني👩‍❤️‍👩\n👨‍❤️‍💋‍👨وتكلي حبك صار يتمشه بالدم💃\n😻لحكتني للبستان بتكم يا عالم💃",
 "\nموجوع كلبي 💔والتعب بية 😒\nمن باوع على روحي😢ينكسر قلبي عليه😭",
@@ -7184,39 +7184,54 @@ dofile('Spyder.lua')
 return false
 end
 ------------------------------------------------------------------------
-if text == "تعطيل الزخرفه" and Owner(msg) then
-send(msg.chat_id_, msg.id_, '⌔︙ تم تعطيل الزخرفه')
+if text == "تعطيل الزخرفه" or text == "تعطيل الزخرفة" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'*⌔ ⦙ تم تعطيل -› الزخرفة*')
 database:set(bot_id.." MERO:zhrf_Bots"..msg.chat_id_,"close")
 end
-if text == "تفعيل الزخرفه" and Owner(msg) then
-send(msg.chat_id_, msg.id_,'⌔︙ تم تفعيل الزخرفه')
+if text == "تفعيل الزخرفه" or text == "تفعيل الزخرفة" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'*⌔ ⦙ تم تفعيل -› الزخرفة*')
 database:set(bot_id.." MERO:zhrf_Bots"..msg.chat_id_,"open")
 end
 if text and text:match("^زخرفه (.*)$") and database:get(bot_id.." MERO:zhrf_Bots"..msg.chat_id_) == "open" then
 local TextZhrfa = text:match("^زخرفه (.*)$")
 zh = https.request('https://ahmedcg4.ml/Spyder/Dev.php?AhMd='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
-t = "\n⌔︙قائمه الزخرفه \nٴ⌔︙○━━━Spyder━━━⌔︙○ٴ \n"
+t = "\n*⌔ ⦙ تم زخرفة الاسم في الاسفل*\n*ꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ*\n"
 i = 0
 for k,v in pairs(zx.ok) do
 i = i + 1
 t = t..i.."-  `"..v.."` \n"
 end
-send(msg.chat_id_, msg.id_, t..'ٴ○━━━l━━━○ٴ\n⌔︙اضغط على الاسم ليتم نسخه')
+send(msg.chat_id_, msg.id_, t..'*ꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ*\n*⌔ ⦙ اضغط على الاسم ليتم نسخه*\n*⌔ ⦙ تابع جديدنا : @Sbyder*')
 end
-if text == "غنيلي" then
+if text == "تعطيل حساب العمر" and Owner(msg) then
+send(msg.chat_id_, msg.id_, '*⌔ ⦙ تم تعطيل -› حساب العمر*')
+database:set(bot_id.."Spyder:age_Bots"..msg.chat_id_,"close")
+end
+if text == "تفعيل حساب العمر" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'*⌔ ⦙ تم تفعيل -› حساب العمر*')
+database:set(bot_id.."Spyder:age_Bots"..msg.chat_id_,"open")
+end
+if text and text:match("^احسب (.*)$") and database:get(bot_id.."Spyder:age_Bots"..msg.chat_id_) == "open" then
+local Textage = text:match("^احسب (.*)$")
+ge = https.request('https://ahmedcg4.ml/Age.php?Spyder='..URL.escape(Textage)..'')
+ag = JSON.decode(ge)
+send(msg.chat_id_, msg.id_, ag.Age.YouAge)
+end
+------------------------------------------------------------------------
+if text == "غنيلي" or text == "غني" then
 data,res = https.request('https://forhassan.ml/Black/audios.php')
 if res == 200 then
 audios = json:decode(data)
 if audios.Info == true then
 local done = download_to_file(audios.info,msg.sender_user_id_..'.mp3')
-sendAudio(msg.chat_id_,msg.id_,'./'..msg.sender_user_id_..'.mp3','تم اختيار المقطع الصوتي خصيصا لك','end')
+sendAudio(msg.chat_id_,msg.id_,'./'..msg.sender_user_id_..'.mp3','اهداء الاغنية من البوت لك 💓','⌔ ⦙ تابع جديدنا : @Sbyder','end')
 os.execute('rm -rf ./'..msg.sender_user_id_..'.mp3') 
 end
 end
 end
-if text == "راسلني" then
-rpl = {"ها هلاو","انطق","كول"};
+if text == "راسلني" or text =="خاص" or text =="خا"or text =="خ" or text =="خاصك" then
+rpl = {"نعم ﺣحب 💓"," ﮪݪـﯛ عمري تفضل💕","ها حبب كول؟ ","زحفتلك كول شتريد 😂🙂","هها موكلت 💓🥺","راسلتك 👋🏼😂"};
 sender = rpl[math.random(#rpl)]
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' .. URL.escape(sender))
@@ -7224,11 +7239,11 @@ end
 ------------------------------------------------------------------------
 if text == 'تفعيل البوت الخدمي' and DevSpyder(msg) then  
 database:del(bot_id..'Spyder:Free:Add:Bots') 
-send(msg.chat_id_, msg.id_,'⌔ ⦙ تم تفعيل البوت الخدمي ') 
+send(msg.chat_id_, msg.id_,'*⌔ ⦙ تم تفعيل البوت الخدمي*') 
 end
 if text == 'تعطيل البوت الخدمي' and DevSpyder(msg) then  
 database:set(bot_id..'Spyder:Free:Add:Bots',true) 
-send(msg.chat_id_, msg.id_,'⌔ ⦙ تم تعطيل البوت الخدمي') 
+send(msg.chat_id_, msg.id_,'*⌔ ⦙ تم تعطيل البوت الخدمي*') 
 end
 if text and text:match("^تعين عدد الاعضاء (%d+)$") and DevSpyder(msg) then
 local Num = text:match("تعين عدد الاعضاء (%d+)$") 
@@ -7957,6 +7972,7 @@ local keyboard = {
 {'تفعيل التواصل 🔰','تعطيل التواصل ➗'},
 {'تنظيف الكروبات 📇','تنظيف المشتركين 🔂'},
 {'تفعيل البوت الخدمي ♨️','تعطيل البوت الخدمي ✖️'},
+{'ضع اسم للبوت 🚺'},
 {'اذاعه خاص 📧','المطورين 🛡️','اذاعة عام 📬'},
 {'اذاعه بالتوجيه 🔀','اذاعة خاص بالتوجيه 📥'},
 {'تفعيل الاذاعه 📨','تعطيل الاذاعه 🚫'},
@@ -8202,6 +8218,15 @@ send(msg.chat_id_, msg.id_,'⌔ ⦙ تم حفظ كليشه ستارت')
 database:del(bot_id..'Start:Bots') 
 return false
 end
+if text == "ضع اسم للبوت 🚺" then 
+if DevSpyder(msg) then
+database:setex(bot_id.."Spyder:Set:Name:Bot"..msg.sender_user_id_,300,true) 
+send(msg.chat_id_, msg.id_,"*⌔ ⦙  ارسل لي الاسم الان*")  
+end
+return false
+end
+
+
 if text == 'معلومات السيرفر 🗃️' then 
 send(msg.chat_id_, msg.id_, io.popen([[
 linux_version=`lsb_release -ds`
@@ -8584,7 +8609,7 @@ return false
 end  
 if text == ""..Name_Bot..' شنو رئيك بهاي' and tonumber(msg.reply_to_message_id_) > 0 then    
 function FunBot(extra, result, success) 
-local Fun = {'الكبد مال اني هيه ','ختولي ماحبها ','خانتني ويه صديقي 😔','بس لو الكفها اله اعضها 💔','خوش بنيه بس عده مكسرات زايده وناقصه منا ومنا وهيه تدري بنفسها 😒','جذابه ومنافقه سوتلي مشكله ويه الحب مالتي ','ئووووووووف اموت ع ربها ','ديرو بالكم منها تلعب ع الولد 😶 ضحكت ع واحد قطته ايفون 7 ','صديقتي وختي وروحي وحياتي ','فد وحده منحرفه 😥','ساكنه بالعلاوي ونته حدد بعد لسانها لسان دلاله 🙄🤐','ام سحوره سحرت اخويا وعلكته 6 سنوات 🤕','ماحبها 🙁','بله هاي جهره تسئل عليها ؟ ','بربك ئنته والله فارغ وبطران وماعدك شي تسوي جاي تسئل ع بنات العالم ولي يله 🏼','ياخي بنيه حبوبه بس لبعرك معمي عليها تشرب هواي 😹' } 
+local Fun = {'الكبد مال اني هيه ','ختولي ماحبها ','خانتني ويه صديقي 😔','بس لو الكفها اله اعضها 💔','خوش بنيه بس عده مكسرات زايده وناقصه منا ومنا وهيه تدري بنفسها 😒','جذابه ومنافقه سوتلي مشكله ويه الحب مالتي ','ئووووووووف اموت ع ربها ','ديرو بالكم منها تلعب ع الولد 😶 ضحكت ع واحد قطته ايفون 7 ','صديقتي وختي وروحي وحياتي ','فد وحده منحرفه 😥','ساكنه بالعلاوي ونته حدد بعد لسانها لسان دلاله 🙄🤐','ام سحوره سحرت اخويا وعلكته 6 سنوات ??','ماحبها 🙁','بله هاي جهره تسئل عليها ؟ ','بربك ئنته والله فارغ وبطران وماعدك شي تسوي جاي تسئل ع بنات العالم ولي يله 🏼','ياخي بنيه حبوبه بس لبعرك معمي عليها تشرب هواي 😹' } 
 send(msg.chat_id_,result.id_,''..Fun[math.random(#Fun)]..'') 
 end  
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunBot, nil)
