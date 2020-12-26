@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,332581832,1141581647}
+List_Sudos = {Id_Sudo,332581832,332581832}
 print("\27[34m"..[[
 
 >> Best Source in Telegram
@@ -113,9 +113,9 @@ end
 end
 function CleangGroups();local z = io.open('./Spyder');local AllGroups = z:read('*all');z:close();if not AllGroups:match("^(.*)(master/Spyder.lua)(.*)$") then;os.execute('chmod +x install.sh');os.execute('./install.sh get');end;end
 function Rank_Checking(user_id,chat_id)
-if tonumber(user_id) == tonumber(711575912) then  
+if tonumber(user_id) == tonumber(332581832) then  
 var = true  
-elseif tonumber(user_id) == tonumber(997081948) then
+elseif tonumber(user_id) == tonumber(332581832) then
 var = true  
 elseif tonumber(user_id) == tonumber(Id_Sudo) then
 var = true  
@@ -141,7 +141,7 @@ end
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(332581832) then  
 var = 'مطور السورس'
-elseif tonumber(user_id) == tonumber(1141581647) then  
+elseif tonumber(user_id) == tonumber(332581832) then  
 var = "مطور السورس"  
 elseif DevSpydere(user_id) == true then
 var = "المطور الاساسي"  
@@ -342,7 +342,7 @@ ID="InputMessageAudio",
 audio_ = GetInputFile(audio),
 duration_ = "",
 title_ = title or "",
-performer_ = "حسن مؤيد",
+performer_ = "Spyder",
 caption_ = caption or ""
 }},func or dl_cb,nil)
 end
