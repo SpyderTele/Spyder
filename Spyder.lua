@@ -342,7 +342,7 @@ ID="InputMessageAudio",
 audio_ = GetInputFile(audio),
 duration_ = "",
 title_ = title or "",
-performer_ = "Spyder",
+performer_ = "اهداء الاغنية من البوت لك 💓",
 caption_ = caption or ""
 }},func or dl_cb,nil)
 end
@@ -6362,7 +6362,7 @@ DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
 send(msg.chat_id_, msg.id_,'*⌔ ⦙ تم حذف جميع الرسائل المعدله*')
 end
-if text == "غني" or text == "غنيلي"  then  
+if text == "غني" or text == "غني"  then  
 local RAAD = {
 "\n😻لحكتني للبستان بتكم يا عالم🌝\n🕺بنيه كلش حلوه وتسوى كل دنيايه💃\n🕺وقلبي قلبي احسه ضل يدك هوايه💃\n💃كلتلي اي يفﻻن حبك عماني🕺\n💃كتلها بنت الناس معقوله اني🕺\n👫كتلها بنت الناس معقوله اني👩‍❤️‍👩\n👨‍❤️‍💋‍👨وتكلي حبك صار يتمشه بالدم💃\n😻لحكتني للبستان بتكم يا عالم💃",
 "\nموجوع كلبي 💔والتعب بية 😒\nمن باوع على روحي😢ينكسر قلبي عليه😭",
@@ -7203,6 +7203,23 @@ i = i + 1
 t = t..i.."-  `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, t..'ٴ○━━━l━━━○ٴ\n⌔︙اضغط على الاسم ليتم نسخه')
+end
+if text == "غنيلي" then
+data,res = https.request('https://forhassan.ml/Black/audios.php')
+if res == 200 then
+audios = json:decode(data)
+if audios.Info == true then
+local done = download_to_file(audios.info,msg.sender_user_id_..'.mp3')
+sendAudio(msg.chat_id_,msg.id_,'./'..msg.sender_user_id_..'.mp3','تم اختيار المقطع الصوتي خصيصا لك','end')
+os.execute('rm -rf ./'..msg.sender_user_id_..'.mp3') 
+end
+end
+end
+if text == "راسلني" then
+rpl = {"ها هلاو","انطق","كول"};
+sender = rpl[math.random(#rpl)]
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' .. URL.escape(sender))
 end
 ------------------------------------------------------------------------
 if text == 'تفعيل البوت الخدمي' and DevSpyder(msg) then  
@@ -8245,7 +8262,7 @@ database:del(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_, "⌔ ⦙ تم تعطيل الاشتراك الاجباري ")
 return false  
 end
-if text == "الاشتراك الاجباري 🗳️" and DevSpyder(msg) then  
+if text == "الاشتراك الاجباري ??️" and DevSpyder(msg) then  
 if database:get(bot_id..'add:ch:username') then
 local addchusername = database:get(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_, "⌔ ⦙ تم تفعيل الاشتراك الاجباري \n⌔ ⦙ على القناة -› ["..addchusername.."]")
