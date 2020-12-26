@@ -7483,9 +7483,9 @@ Text = [[
 
 𓂅 *. Spyder TeAM *
 *••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••*
-𓂅 . [Source Channel .](http://t.me/Sbyder)
+𓂅 . [Source Channel .](https://t.me/Sbyder/16)
 
-𓂅 . [Source Info .](https://t.me/Sbyder)
+𓂅 . [Files Channel .](https://t.me/pqqqr/6)
 
 𓂅 . [The Developer .](https://t.me/VlVlVI)
 *••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••*
