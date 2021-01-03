@@ -6649,7 +6649,7 @@ end
 
 if database:get(bot_id.."Spyder:Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_) then 
 if text == 'الغاء' then 
-send(msg.chat_id_, msg.id_,"☑️┇تم الغاء تعين الايدي") 
+send(msg.chat_id_, msg.id_,"📫┇تم الغاء تعين الايدي") 
 database:del(bot_id.."Spyder:Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_) 
 return false  
 end 
@@ -6677,14 +6677,14 @@ local Num_Games = database:get(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender
 local Add_Mem = database:get(bot_id.."Spyder:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
 local Total_Photp = (taha.total_count_ or 0)
 local Texting = {
-'ملاك وناسيك بكروبنه😟',
-"حلغوم والله☹️ ",
-"اطلق صوره🐼❤️",
-"كيكك والله🥺",
-"لازك بيها غيرها عاد😒",
-"ئنيق وربي 🥺💘",
-"ككيمر انت شني 🤤💜",
-"فستق تنوكل 😂🥺💘",
+'🥺🖤 ملاك وناسيك بكروبنة ',
+"☹️ حلغوم والله",
+"🐼❤️ طلق صوره ؟",
+"🥺 كيكك والله",
+"😒لازك بيها غيرها عاد",
+"🥺💘ئنيق وربي",
+"🤤💜 كيمر انت شني",
+"😂🥺💘 فستق تنوكل",
 }
 local Description = Texting[math.random(#Texting)]
 local get_id = database:get(bot_id.."Spyder:Klesh:Id:Bot"..msg.chat_id_)
@@ -6703,10 +6703,10 @@ local get_id = get_id:gsub('#game',Num_Games)
 local get_id = get_id:gsub('#photos',Total_Photp) 
 sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,get_id)
 else
-sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,'📸┇التعـليق -› '..Description..'\n🎟┇ايديــك -› '..Id..'\n🎭┇مـعرفك -› '..UserName_User..'\n📌┇موقعـك -› '..Status_Gps..'\n💌┇رسـائلك -› '..NumMsg..'\n✏️┇السحكات -› '..message_edit..'\n🎲┇تفاعـلك -› '..TotalMsg..'\n💎┇مجوهرآتك -› '..Num_Games..'') 
+sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,'𖡋 • 𝘊𝘰𝘔𝘰𝘯𝘛 • '..Description..'\n𖡋 • 𝘜𝘴𝘦𝘳𝘕𝘢 • '..UserName_User..'\n𖡋 • 𝘠𝘰𝘶𝘳 𝘪𝘋 • '..Id..'\n𖡋 • 𝘈𝘶𝘛𝘰 • '..TotalMsg..'\n𖡋 • 𝘚𝘵𝘢𝘴𝘛 • '..Status_Gps..'\n𖡋 • 𝘔𝘴𝘨𝘚 • '..NumMsg..'\n𖡋 • 𝘎𝘢𝘔𝘦 • '..Num_Games..'') 
 end
 else
-send(msg.chat_id_, msg.id_,'🌉┇ليس لديك صوره \n'..'🎟┇ايديــك -› '..Id..'\n🎭┇مـعرفك -› ['..UserName_User..']\n📌┇موقعـك -› '..Status_Gps..'\n💌┇رسـائلك -› '..NumMsg..'\n✏️┇السحكات -› '..message_edit..'\n🎲┇تفاعـلك -› '..TotalMsg..'\n💎┇مجوهرآتك -› '..Num_Games..'') 
+send(msg.chat_id_, msg.id_,'𖡋 • 𝘗𝘩𝘰𝘛𝘴 • ليس لديك صوره\n'..'𖡋 • 𝘜𝘴𝘦𝘳𝘕𝘢 • '..UserName_User..'\n𖡋 • 𝘠𝘰𝘶𝘳 𝘪𝘋 • '..Id..'\n𖡋 • 𝘈𝘶𝘛𝘰 • '..TotalMsg..'\n𖡋 • 𝘚𝘵𝘢𝘴𝘛 • '..Status_Gps..'\n𖡋 • 𝘔𝘴𝘨𝘚 • '..NumMsg..'\n𖡋 • 𝘎𝘢𝘔𝘦 • '..Num_Games..'') 
 end
 else
 if get_id then
@@ -6722,7 +6722,7 @@ local get_id = get_id:gsub('#game',Num_Games)
 local get_id = get_id:gsub('#photos',Total_Photp) 
 send(msg.chat_id_, msg.id_,'['..get_id..']') 
 else
-send(msg.chat_id_, msg.id_,'\n*🎟┇ايديــك • '..Id..'\n🎭┇مـعرفك • *['..UserName_User..']\n*📌┇موقعـك • '..Status_Gps..'\n💌┇رسـائلك • '..NumMsg..'\n✏️┇السحكات • '..message_edit..'\n🎲┇تفاعـلك • '..TotalMsg..'\n💎┇مجوهرآتك • '..Num_Games..'*') 
+send(msg.chat_id_, msg.id_,'\n*𖡋 • 𝘜𝘴𝘦𝘳𝘕𝘢 •* '..UserName_User..'\n*𖡋 • 𝘠𝘰𝘶𝘳 𝘪𝘋 • '..Id..'\n𖡋 • 𝘈𝘶𝘛𝘰 • '..TotalMsg..'\n𖡋 • 𝘚𝘵𝘢𝘴𝘛 • '..Status_Gps..'\n𖡋 • 𝘔𝘴𝘨𝘚 • '..NumMsg..'\n𖡋 • 𝘌𝘥𝘪𝘛 • '..message_edit..'\n𖡋 • 𝘎𝘢𝘔𝘦 • '..Num_Games..'*') 
 end
 end
 end,nil)   
